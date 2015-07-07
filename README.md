@@ -7,7 +7,7 @@
 ### Dependencies
 * Raspberry Pi: 
   - Picamera
-* Computer
+* Computer:
   - Numpy
   - OpenCV
   - Pygame
@@ -50,7 +50,7 @@
 
 5. **Neural network testing:** Run *“mlp_predict_test.py”* to load testing data from “testing_data” folder and trained parameters from the xml file in “mlp_xml” folder
 
-6. **Cascade classifiers training (optional):** trained stop sign and traffic light classifiers are included in the "cascade_xml" folder, if you are interested training your own classifiers, please refer to [OpenCV documentation](http://docs.opencv.org/doc/user_guide/ug_traincascade.html) and [this great tutorial by Thorsten Ball](http://coding-robin.de/2013/07/22/train-your-own-opencv-haar-classifier.html)
+6. **Cascade classifiers training (optional):** trained stop sign and traffic light classifiers are included in the "cascade_xml" folder, if you are interested in training your own classifiers, please refer to [OpenCV documentation](http://docs.opencv.org/doc/user_guide/ug_traincascade.html) and [this great tutorial by Thorsten Ball](http://coding-robin.de/2013/07/22/train-your-own-opencv-haar-classifier.html)
 
 7. **Self-driving in action**: First run *“rc_driver.py”* to start the server on the computer and then run *“stream_client.py”* and *“ultrasonic_client.py”* on raspberry pi. 
 
