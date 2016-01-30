@@ -1,0 +1,320 @@
+.gcard {
+	position: absolute;
+	z-index: 20;
+	-moz-box-shadow: 0 0 8px rgba(0,0,0,.4);
+	-webkit-box-shadow: 0 0 8px rgba(0,0,0,.4);
+	box-shadow: 0 0 8px rgba(0,0,0,.4);
+	max-width: 400px;
+	margin: 0;
+}
+
+	.gcard .grav-inner {
+		zoom: 1;
+		position: relative;
+		background: #000; /* Hi IE! */
+		background: rgba(0,0,0,0.85);
+		padding: 18px;
+		color: #fff;
+		font-family: Helvetica, Arial, Tahoma, sans-serif;
+		font-size: 12px;
+		line-height: 150%;
+		text-shadow: #000 0px -1px 0;
+		font-style: normal !important;
+	}
+
+		.gcard .grav-inner * {
+			font-style: normal !important;
+		}
+
+	.gcard .gcard-about {
+		clear: left;
+	}
+
+	.gcard a {
+		color: #fff !important;
+		border: none !important;
+		text-decoration: none !important;
+		font-family: Helvetica, Arial, Tahoma, sans-serif;
+	}
+
+	.gcard a:hover {
+		text-decoration: none !important;
+		border: none !important;
+		color: #51a6da !important;
+	}
+
+	.gcard ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		font-size: 12px;
+	}
+
+	.gcard ul li {
+		list-style: none;
+	}
+
+	.gcard p {
+		color: #fff;
+		text-align: left;
+		font-size: 12px;
+		margin: 0 0 10px;
+	}
+
+	.gcard .grav-small { font-size: 10px; }
+
+	.gcard .grav-grav {
+		float: left;
+		border: solid 3px #fff;
+		padding: 0px !important;
+		-moz-box-shadow: inset 0 1px 0 #64A8D1, 0 1px 5px #000;
+		-webkit-box-shadow: inset 0 1px 0 #64A8D1, 0 1px 5px #000;
+		-o-box-shadow: inset 0 1px 0 #64A8D1, 0 1px 5px #000;
+		-ms-box-shadow: inset 0 1px 0 #64A8D1, 0 1px 5px #000;
+		box-shadow: inset 0 1px 0 #64A8D1, 0 1px 5px #000;
+		line-height: 50%;
+	}
+
+	.pos-left .grav-grav {
+		float: right;
+	}
+
+		.gcard .grav-grav img {
+			padding: 0px;
+			margin: 0px;
+		}
+
+	.gcard .grav-info {
+		float: left;
+		width: 220px;
+		margin-left: 20px;
+	}
+
+	.pos-left .grav-info {
+		float: right;
+		margin-left: 0;
+		margin-right: 20px;
+	}
+
+		.gcard h4 {
+			float: left;
+			margin: 0 10px 5px 0 !important;
+			padding: 0 !important;
+			font-size: 18px;
+			font-family: Helvetica, Arial, Tahoma, sans-serif;
+			line-height: 115%;
+			vertical-align: middle;
+			text-transform: none;
+			text-align: left;
+		}
+
+			.gcard h4, x:-moz-any-link, x:default { line-height: 90% }
+
+	/* Hide card info for incomplete cards */
+	.gcard .grav-about, .gcard .grav-links, .gcard .grav-gallery, .gcard .grav-services {
+		display: none;
+	}
+	/* Display card info for cards with that info */
+	.gcard-about .grav-about, .gcard-links .grav-links, .gcard-gallery .grav-gallery, .gcard-services .grav-services {
+		display: block;
+	}
+
+	.grav-about {
+		clear: left;
+	}
+		a.grav-edit-profile {
+			border-bottom: 1px solid #666 !important;
+		}
+			a.grav-edit-profile:hover {
+				border-bottom: 1px solid #444 !important;
+			}
+
+	.grav-loc {
+		clear: left;
+		font-size: 90% !important;
+		margin: 0px 0px 1px 0px;
+		color: #9fa09f !important;
+	}
+
+	.gcard .grav-cardarrow {
+		position: absolute;
+		top: 23px;
+		left: -8px;
+		display: inline-block;
+		width: 0 !important;
+		height: 0 !important;
+		border-top: 8px solid transparent;
+		border-bottom: 8px solid transparent;
+		border-right: 8px solid rgba(0, 0, 0, 0.85);
+	}
+
+		.pos-left .grav-cardarrow {
+			right: -8px !important;
+			left: auto;
+			border-left: 8px solid rgba(0, 0, 0, 0.85);
+			border-right: none;
+		}
+
+	/* Hide the card arrow for now */
+	.gcard .grav-cardarrow {
+		display: none;
+	}
+
+	.gcard .grav-tag {
+		clear: both;
+		position: absolute;
+		top: 0;
+		right: -22px;
+		background: url(/images/grav-tag.png) top right no-repeat;
+		background-size: 48px 61px;
+		width: 48px;
+		height: 61px;
+	}
+		.pos-left .grav-tag {
+			right: auto;
+			left: -22px;
+			background: url(/images/grav-tag-left.png) top right no-repeat;
+			background-size: 48px 61px;
+		}
+
+	.gcard .grav-tag a {
+		width: 48px;
+		height: 61px;
+		display: block;
+		text-decoration: none;
+	}
+		.pos-left .grav-tag a {
+			/* TODO: Replace flip with grav-tag-left.gif */
+			-o-transform: scaleX(-1);
+			-moz-transform: scaleX(-1);
+			-webkit-transform: scaleX(-1);
+			transform: scaleX(-1);
+			filter: fliph;
+		}
+
+	.gcard .grav-extra {
+		float: left;
+		margin: 5px 5px 0 0;
+		vertical-align: middle;
+	}
+		.gcard .grav-extra, x:-moz-any-link, x:default { margin-top: 1px; }
+
+		.gcard .grav-extra a {
+			display: block;
+			line-height: 80%;
+			padding: 3px 5px 3px 17px !important;
+			color: #000 !important;
+			font-size: 11px;
+			-moz-border-radius: 3px;
+			-webkit-border-radius: 3px;
+			border-radius: 3px;
+			text-shadow: none;
+		}
+			.gcard .grav-extra, x:-moz-any-link, x:default { padding-bottom: 2px !important; }
+
+			.gcard .grav-extra a:hover {
+				background-color: #3b91c5;
+				color: #fff !important;
+			}
+
+		.gcard .comments a {
+			background: #fff url(/images/pillicon.png) 3px 2px no-repeat;
+		}
+			.gcard .comments a:hover {
+				background-position: -11px 2px;
+			}
+
+		.gcard .likes a {
+			background: #fff url(/images/pillicon.png) 4px -13px no-repeat;
+		}
+
+			.gcard .likes a:hover {
+				background-position: -10px -13px;
+			}
+
+	.gcard .grav-disable {
+		margin: 3px 0px -5px;
+		font-size: 10px;
+		line-height: 10px;
+	}
+		.gcard .grav-disable a {
+			color: #666 !important;
+		}
+		.gcard .grav-disable a:hover {
+			color: #fff !important;
+		}
+
+	a.grav-view-complete {
+		display: inline-block;
+		padding: 5px 15px;
+		margin: 0 0 10px;
+		background: #3D92C6;
+		background: -moz-linear-gradient(top, #3D92C6 0%, #0E74B2 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3D92C6), color-stop(100%,#0E74B2));
+		background: -webkit-linear-gradient(top, #3D92C6 0%,#0E74B2 100%);
+		background: -o-linear-gradient(top, #3D92C6 0%,#0E74B2 100%);
+		background: -ms-linear-gradient(top, #3D92C6 0%,#0E74B2 100%);
+		background: linear-gradient(top, #3D92C6 0%,#0E74B2 100%);
+		-moz-border-radius: 2px;
+		-webkit-border-radius: 2px;
+		-o-border-radius: 2px;
+		-ms-border-radius: 2px;
+		border-radius: 2px;
+		border: none;
+		-moz-box-shadow: inset 0 1px 0 #64A8D1, 0 1px 3px #000;
+		-webkit-box-shadow: inset 0 1px 0 #64A8D1, 0 1px 3px #000;
+		-o-box-shadow: inset 0 1px 0 #64A8D1, 0 1px 3px #000;
+		-ms-box-shadow: inset 0 1px 0 #64A8D1, 0 1px 3px #000;
+		box-shadow: inset 0 1px 0 #64A8D1, 0 1px 3px #000;
+		color: #fff;
+		text-shadow: 0 -1px 0 #124869;
+		font-size: 12px;
+		font-family: 'Helvetica Neue Bold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	a.grav-view-complete:hover {
+		color: #fff !important;
+		background: #51A6DA;
+		background: -moz-linear-gradient(top, #51A6DA 0%, #3D92C6 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#51A6DA), color-stop(100%,#3D92C6));
+		background: -webkit-linear-gradient(top, #51A6DA 0%,#3D92C6 100%);
+		background: -o-linear-gradient(top, #51A6DA 0%,#3D92C6 100%);
+		background: -ms-linear-gradient(top, #51A6DA 0%,#3D92C6 100%);
+		background: linear-gradient(top, #51A6DA 0%,#3D92C6 100%);
+		-moz-box-shadow: inset 0 1px 0 #86C1E5, 0 1px 5px #000;
+		-webkit-box-shadow: inset 0 1px 0 #86C1E5, 0 1px 5px #000;
+		-o-box-shadow: inset 0 1px 0 #86C1E5, 0 1px 5px #000;
+		-ms-box-shadow: inset 0 1px 0 #86C1E5, 0 1px 5px #000;
+		box-shadow: inset 0 1px 0 #86C1E5, 0 1px 5px #000;
+	}
+
+	a.grav-view-complete:active {
+		background: #51A6DA;
+		background: -moz-linear-gradient(top, #0E74B2 0%, #3D92C6 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0E74B2), color-stop(100%,#3D92C6));
+		background: -webkit-linear-gradient(top, #0E74B2 0%,#3D92C6 100%);
+		background: -o-linear-gradient(top, #0E74B2 0%,#3D92C6 100%);
+		background: -ms-linear-gradient(top, #0E74B2 0%,#3D92C6 100%);
+		background: linear-gradient(top, #0E74B2 0%,#3D92C6 100%);
+		-moz-box-shadow: inset 0 -1px 0 #4F9CCB, 0 1px 1px #000;
+		-webkit-box-shadow: inset 0 -1px 0 #4F9CCB, 0 1px 1px #000;
+		-o-box-shadow: inset 0 -1px 0 #4F9CCB, 0 1px 1px #000;
+		-ms-box-shadow: inset 0 -1px 0 #4F9CCB, 0 1px 1px #000;
+		box-shadow: inset 0 -1px 0 #4F9CCB, 0 1px 1px #000;
+		color: #D3E6F1;
+	}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+	.gcard .grav-tag {
+		background-image: url(/images/grav-tag-2x.png);
+	}
+	.pos-left .grav-tag {
+		background-image: url(/images/grav-tag-left-2x.png);
+	}
+}
