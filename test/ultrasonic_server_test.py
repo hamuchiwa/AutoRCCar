@@ -17,7 +17,6 @@ class SensorStreamingTest(object):
 
         try:
             print "Connection from: ", self.client_address
-            print "Press 'q' to exit"
             start = time.time()
 
             while True:
