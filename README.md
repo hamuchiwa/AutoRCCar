@@ -1,6 +1,9 @@
 ## AutoRCCar
 
-[See self-driving in action (Youtube)](https://youtu.be/BBwEF6WBUQs)
+See self-driving in action
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=BBwEF6WBUQs
+" target="_blank"><img src="http://img.youtube.com/vi/BBwEF6WBUQs/0.jpg" width="360" height="240" border="10" /></a>
 
   A scaled down version of self-driving system using a RC car, Raspberry Pi, Arduino and open source software. The system uses a Raspberry Pi with a camera and an ultrasonic sensor as inputs, a processing computer that handles steering, object recognition (stop sign and traffic light) and distance measurement, and an Arduino board for RC car control.
   
@@ -9,7 +12,7 @@
   - Picamera
 * Computer:
   - Numpy
-  - OpenCV
+  - OpenCV 2.4.10.1
   - Pygame
   - PiSerial
   
@@ -25,19 +28,19 @@
   -	chess_board/ 
     - images for calibration, captured by pi camera 
   -	training_data/ 
-    - training image data for neural network in npz format
-  -	testing_data/ 
-    - testing image data for neural network in npz format
+    - training data for neural network in npz format
   -	training_images/ 
     - saved video frames during image training data collection stage (optional)
   -	mlp_xml/ 
     - trained neural network parameters in a xml file
-  -	***rc_control_test.py***: drive RC car with keyboard (testing purpose)
   -	***picam_calibration.py***: pi camera calibration, returns camera matrix
   -	***collect_training_data.py***: receive streamed video frames and label frames for later training
   -	***mlp_training.py***: neural network training
-  -	***mlp_predict_test.py***: test trained neural network with testing data
   -	***rc_driver.py***: a multithread server program receives video frames and sensor data, and allows RC car drives by itself with stop sign, traffic light detection and front collision avoidance capabilities
+- test/
+  -	***rc_control_test.py***: RC car control with keyboard 
+  -	***stream_server_test.py***: video streaming from Pi to computer
+  -	***ultrasonic_server_test.py***: sensor data streaming from Pi to computer
 
 ### How to drive
 1. **Flash Arduino**: Flash *“rc_keyboard_control.ino”* to Arduino and run *“rc_control_test.py”* to drive the rc car with keyboard (testing purpose)
@@ -46,11 +49,9 @@
 
 3. **Collect training data and testing data:** First run *“collect_training_data.py”* and then run *“stream_client.py”* on raspberry pi. User presses keyboard to drive the RC car, frames are saved only when there is a key press action. When finished driving, press “q” to exit, data is saved as a npz file. 
 
-4. **Neural network training:** Run *“mlp_training.py”*, depend on the parameters chosen, it will take some time to train. After training, parameters are saved in “mlp_xml” folder
+4. **Neural network training:** Run *“mlp_training.py”*, depend on the parameters chosen, it will take some time to train. After training, model will be saved in “mlp_xml” folder
 
-5. **Neural network testing:** Run *“mlp_predict_test.py”* to load testing data from “testing_data” folder and trained parameters from the xml file in “mlp_xml” folder
+5. **Cascade classifiers training (optional):** trained stop sign and traffic light classifiers are included in the "cascade_xml" folder, if you are interested in training your own classifiers, please refer to [OpenCV documentation](http://docs.opencv.org/doc/user_guide/ug_traincascade.html) and [this great tutorial by Thorsten Ball](http://coding-robin.de/2013/07/22/train-your-own-opencv-haar-classifier.html)
 
-6. **Cascade classifiers training (optional):** trained stop sign and traffic light classifiers are included in the "cascade_xml" folder, if you are interested in training your own classifiers, please refer to [OpenCV documentation](http://docs.opencv.org/doc/user_guide/ug_traincascade.html) and [this great tutorial by Thorsten Ball](http://coding-robin.de/2013/07/22/train-your-own-opencv-haar-classifier.html)
-
-7. **Self-driving in action**: First run *“rc_driver.py”* to start the server on the computer and then run *“stream_client.py”* and *“ultrasonic_client.py”* on raspberry pi. 
+6. **Self-driving in action**: First run *“rc_driver.py”* to start the server on the computer and then run *“stream_client.py”* and *“ultrasonic_client.py”* on raspberry pi. 
 
