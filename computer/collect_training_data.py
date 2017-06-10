@@ -6,6 +6,8 @@ import serial
 import pygame
 from pygame.locals import *
 import socket
+import time
+import os
 
 
 class CollectTrainingData(object):
@@ -142,7 +144,14 @@ class CollectTrainingData(object):
             train_labels = label_array[1:, :]
 
             # save training data as a numpy file
-            np.savez('training_data_temp/test08.npz', train=train, train_labels=train_labels)
+            file_name = str(int(time.time()))
+            directory = "training_data"
+            if not os.path.exists(directory):
+                os.makedirs(directory)
+            try:    
+                np.savez(directory + '/' + file_name + '.npz', train=train, train_labels=train_labels)
+            except IOError as e:
+                print(e)
 
             e2 = cv2.getTickCount()
             # calculate streaming duration
