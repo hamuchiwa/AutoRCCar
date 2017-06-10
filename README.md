@@ -42,7 +42,7 @@ See self-driving in action
   -	***stream_server_test.py***: video streaming from Pi to computer
   -	***ultrasonic_server_test.py***: sensor data streaming from Pi to computer
 - Traffic_signal/ 
-  - sketch contributed by [@geek111](https://github.com/geek1111)
+  - trafic signal sketch contributed by [@geek111](https://github.com/geek1111)
 
 
 ### How to drive
