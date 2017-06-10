@@ -3,6 +3,7 @@ __author__ = 'zhengwang'
 import cv2
 import numpy as np
 import glob
+import sys
 from sklearn.cross_validation import train_test_split
 
 print 'Loading training data...'
@@ -12,6 +13,11 @@ e0 = cv2.getTickCount()
 image_array = np.zeros((1, 38400))
 label_array = np.zeros((1, 4), 'float')
 training_data = glob.glob('training_data/*.npz')
+
+# if no data, exit
+if not training_data:
+    print "No training data in directory, exit"
+    sys.exit()
 
 for single_npz in training_data:
     with np.load(single_npz) as data:
