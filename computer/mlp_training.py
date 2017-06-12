@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 import glob
 import sys
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 
 print 'Loading training data...'
 e0 = cv2.getTickCount()
