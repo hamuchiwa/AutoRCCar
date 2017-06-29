@@ -20,21 +20,21 @@ def measure():
     """
     measure distance
     """
-  GPIO.output(GPIO_TRIGGER, True)
-  time.sleep(0.00001)
-  GPIO.output(GPIO_TRIGGER, False)
-  start = time.time()
-
-  while GPIO.input(GPIO_ECHO)==0:
+    GPIO.output(GPIO_TRIGGER, True)
+    time.sleep(0.00001)
+    GPIO.output(GPIO_TRIGGER, False)
     start = time.time()
 
-  while GPIO.input(GPIO_ECHO)==1:
-    stop = time.time()
+    while GPIO.input(GPIO_ECHO)==0:
+        start = time.time()
 
-  elapsed = stop-start
-  distance = (elapsed * 34300)/2
+    while GPIO.input(GPIO_ECHO)==1:
+        stop = time.time()
 
-  return distance
+    elapsed = stop-start
+    distance = (elapsed * 34300)/2
+
+    return distance
 
 # referring to the pins by GPIO numbers
 GPIO.setmode(GPIO.BCM)
