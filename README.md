@@ -1,5 +1,7 @@
 ## AutoRCCar
 
+[中文文档](https://github.com/zhaoying9105/AutoRCCar) (感谢[zhaoying9105](https://github.com/zhaoying9105))
+
 See self-driving in action
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=BBwEF6WBUQs
