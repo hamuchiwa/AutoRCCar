@@ -9,6 +9,7 @@ class RCTest(object):
 
     def __init__(self):
         pygame.init()
+        screen = pygame.display.set_mode((300, 200)) ## display initialization for pygame window
         self.ser = serial.Serial('/dev/tty.usbmodem1421', 115200, timeout=1)
         self.send_inst = True
         self.steer()
@@ -64,6 +65,10 @@ class RCTest(object):
 
                 elif event.type == pygame.KEYUP:
                     self.ser.write(chr(0))
+                
+                elif event.type == pygame.QUIT:   ## quit functionality for the pygame display window
+                    pygame.display.quit()
+                    pygame.quit()
 
 if __name__ == '__main__':
     RCTest()
