@@ -157,29 +157,29 @@ class VideoStreamHandler(socketserver.StreamRequestHandler):
             sys.exit()
 
 
-class ThreadServer(object):
+class Server(object):
     def __init__(self, host, port1, port2):
         self.host = host
         self.port1 = port1
         self.port2 = port2
 
-    def server_thread(self, host, port):
-        server = socketserver.TCPServer((host, port), VideoStreamHandler)
-        server.serve_forever()
+    def video_stream(self, host, port):
+        s = socketserver.TCPServer((host, port), VideoStreamHandler)
+        s.serve_forever()
 
-    def server_thread2(self, host, port):
-        server = socketserver.TCPServer((host, port), SensorDataHandler)
-        server.serve_forever()
+    def sensor_stream(self, host, port):
+        s = socketserver.TCPServer((host, port), SensorDataHandler)
+        s.serve_forever()
 
     def start(self):
-        video_thread = threading.Thread(target=self.server_thread, args=(self.host, self.port1))
-        video_thread.start()
-        distance_thread = threading.Thread(target=self.server_thread2, args=(self.host, self.port2))
-        distance_thread.start()
+        sensor_thread = threading.Thread(target=self.sensor_stream, args=(self.host, self.port2))
+        sensor_thread.daemon = True
+        sensor_thread.start()
+        self.video_stream(self.host, self.port1)
 
 
 if __name__ == '__main__':
     h, p1, p2 = "192.168.1.100", 8000, 8002
 
-    ts = ThreadServer(h, p1, p2)
+    ts = Server(h, p1, p2)
     ts.start()
