@@ -88,5 +88,9 @@ class NeuralNetwork(object):
         self.model = cv2.ml.ANN_MLP_load(path)
 
     def predict(self, X):
-        ret, resp = self.model.predict(X)
+        resp = None
+        try:
+            ret, resp = self.model.predict(X)
+        except Exception as e:
+            print(e)
         return resp.argmax(-1)
