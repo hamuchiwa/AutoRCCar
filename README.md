@@ -45,7 +45,9 @@ This project builds a self-driving RC car using Raspberry Pi, Arduino and open s
   &emsp; &emsp;  `model.py`:                 neural network model  
   &emsp; &emsp;  `model_training.py`:        model training and validation  
   &emsp; &emsp;  `rc_driver_helper.py`:      helper classes/functions for `rc_driver.py`  
-  &emsp; &emsp;  `rc_driver.py`:             receive data from raspberry pi and drive the RC car based on model prediction
+  &emsp; &emsp;  `rc_driver.py`:             receive data from raspberry pi and drive the RC car based on model prediction  
+  &emsp; &emsp;  `rc_driver_nn_only.py`:     simplified `rc_driver.py` without object detection  
+  
   
 **Traffic_signal**  
   &emsp; &emsp;  trafic signal sketch contributed by [@geek111](https://github.com/geek1111)
@@ -62,6 +64,6 @@ This project builds a self-driving RC car using Raspberry Pi, Arduino and open s
 
 5. **Cascade classifiers training (optional):** Trained stop sign and traffic light classifiers are included in the **`cascade_xml`** folder, if you are interested in training your own classifiers, please refer to [OpenCV doc](http://docs.opencv.org/doc/user_guide/ug_traincascade.html) and this great [tutorial](http://coding-robin.de/2013/07/22/train-your-own-opencv-haar-classifier.html).
 
-6. **Self-driving in action**: First run `rc_driver.py` to start the server on the computer, and then run `stream_client.py` and `ultrasonic_client.py` on raspberry pi. 
+6. **Self-driving in action**: First run `rc_driver.py` to start the server on the computer (for simplified no object detection version, run `rc_driver_nn_only.py` instead), and then run `stream_client.py` and `ultrasonic_client.py` on raspberry pi. 
 
 [中文文档](https://github.com/zhaoying9105/AutoRCCar) (感谢[zhaoying9105](https://github.com/zhaoying9105))
