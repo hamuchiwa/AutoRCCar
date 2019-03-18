@@ -18,9 +18,6 @@ class RCDriverNNOnly(object):
         # accept a single connection
         self.connection = self.server_socket.accept()[0].makefile('rb')
 
-        # connect to a seral port
-        self.ser = serial.Serial(serial_port, 115200, timeout=1)
-
         # load trained neural network
         self.nn = NeuralNetwork()
         self.nn.load_model(model_path)
