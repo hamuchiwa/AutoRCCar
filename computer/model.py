@@ -80,10 +80,9 @@ class NeuralNetwork(object):
         self.model.save(path)
         print("Model saved to: " + "'" + path + "'")
 
-
     def load_model(self, path):
         if not os.path.exists(path):
-            print("Model 'nn_model.xml' does not exist, exit")
+            print("Model does not exist, exit")
             sys.exit()
         self.model = cv2.ml.ANN_MLP_load(path)
 
