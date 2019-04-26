@@ -49,7 +49,7 @@ try:
         distance = measure()
         print "Distance : %.1f cm" % distance
         # send data to the host every 0.5 sec
-        client_socket.send(str(distance))
+        client_socket.send((str(distance)).encode('utf-8'))
         time.sleep(0.5)
 finally:
     client_socket.close()
