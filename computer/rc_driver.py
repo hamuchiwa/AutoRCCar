@@ -1,5 +1,6 @@
 __author__ = 'zhengwang'
 
+import cv2
 import sys
 import threading
 import socketserver
@@ -100,12 +101,12 @@ class VideoStreamHandler(socketserver.StreamRequestHandler):
                     prediction = self.nn.predict(image_array)
 
                     # stop conditions
-                    if sensor_data and int(sensor_data) < d_sensor_thresh: # 
+                    if sensor_data and int(sensor_data) < self.d_sensor_thresh:
                         print("Stop, obstacle in front")
                         self.rc_car.stop()
                         sensor_data = None
 
-                    elif 0 < self.d_stop_sign < d_stop_light_thresh and stop_sign_active:
+                    elif 0 < self.d_stop_sign < self.d_stop_light_thresh and stop_sign_active:
                         print("Stop sign ahead")
                         self.rc_car.stop()
 
@@ -124,7 +125,7 @@ class VideoStreamHandler(socketserver.StreamRequestHandler):
                             stop_flag = False
                             stop_sign_active = False
 
-                    elif 0 < self.d_light < d_stop_light_thresh:
+                    elif 0 < self.d_light < self.d_stop_light_thresh:
                         # print("Traffic light ahead")
                         if self.obj_detection.red_light:
                             print("Red light")
@@ -136,7 +137,7 @@ class VideoStreamHandler(socketserver.StreamRequestHandler):
                             print("Yellow light flashing")
                             pass
 
-                        self.d_light = d_stop_light_thresh
+                        self.d_light = self.d_stop_light_thresh
                         self.obj_detection.red_light = False
                         self.obj_detection.green_light = False
                         self.obj_detection.yellow_light = False
@@ -144,7 +145,7 @@ class VideoStreamHandler(socketserver.StreamRequestHandler):
                     else:
                         self.rc_car.steer(prediction)
                         self.stop_start = cv2.getTickCount()
-                        self.d_stop_sign = d_stop_light_thresh
+                        self.d_stop_sign = self.d_stop_light_thresh
 
                         if stop_sign_active is False:
                             self.drive_time_after_stop = (self.stop_start - self.stop_finish) / cv2.getTickFrequency()
