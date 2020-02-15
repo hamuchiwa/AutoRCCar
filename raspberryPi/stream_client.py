@@ -8,7 +8,8 @@ import picamera
 
 # create socket and bind host
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client_socket.connect(('192.168.1.100', 8000))
+# TODO: change this to match the PC's local IP. Leave the port unchanged
+client_socket.connect(('192.168.4.2', 8000))
 connection = client_socket.makefile('wb')
 
 try:

@@ -39,7 +39,7 @@ class VideoStreamHandler(socketserver.StreamRequestHandler):
     nn.load_model("saved_model/nn_model.xml")
 
     obj_detection = ObjectDetection()
-    rc_car = RCControl("/dev/tty.usbmodem1421") 
+    rc_car = RCControl() 
 
     # cascade classifiers
     stop_cascade = cv2.CascadeClassifier("cascade_xml/stop_sign.xml")
@@ -183,7 +183,8 @@ class Server(object):
 
 
 if __name__ == '__main__':
-    h, p1, p2 = "192.168.1.100", 8000, 8002
+    # TODO: change this to match the PC's local IP. Leave the port unchanged
+    h, p1, p2 = "192.168.4.2", 8000, 8002
 
     ts = Server(h, p1, p2)
     ts.start()

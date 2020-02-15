@@ -8,6 +8,8 @@ See self-driving in action
 
 This project builds a self-driving RC car using Raspberry Pi, Arduino and open source software. Raspberry Pi collects inputs from a camera module and an ultrasonic sensor, and sends data to a computer wirelessly. The computer processes input images and sensor data for object detection (stop sign and traffic light) and collision avoidance respectively. A neural network model runs on computer and makes predictions for steering based on input images. Predictions are then sent to the Arduino for RC car control. 
   
+**Note: This is the code for running a car powered with an esp8266 and L293 driver**
+
 ### Setting up environment with Anaconda
   1. Install [`miniconda(Python3)`](https://conda.io/miniconda.html) on your computer
   2. Create `auto-rccar` environment with all necessary libraries for this project  
@@ -31,8 +33,8 @@ This project builds a self-driving RC car using Raspberry Pi, Arduino and open s
   &emsp; &emsp;  `stream_client.py`:        stream video frames in jpeg format to the host computer  
   &emsp; &emsp;  `ultrasonic_client.py`:    send distance data measured by sensor to the host computer  
   
-**arduino/**  
-  &emsp; &emsp;  `rc_keyboard_control.ino`: control RC car controller  
+**esp/**  
+  &emsp; &emsp;  `boot.py`: RC car controller  
   
 **computer/**    
   &emsp; &emsp;  **cascade_xml/**  
@@ -54,7 +56,27 @@ This project builds a self-driving RC car using Raspberry Pi, Arduino and open s
 
 
 ### How to drive
-1. **Testing:** Flash `rc_keyboard_control.ino` to Arduino and run `rc_control_test.py` to drive the RC car with keyboard. Run `stream_server_test.py` on computer and then run `stream_client.py` on raspberry pi to test video streaming. Similarly, `ultrasonic_server_test.py` and `ultrasonic_client.py` can be used for sensor data streaming testing.   
+
+***Note Remember to do the TODOs in the following files:***
+
+  &emsp;  `collect_training_data.py` line 180
+
+  &emsp;  `rc_driver_nn_only.py` line 67
+
+  &emsp;  `rc_driver.py` line 186
+
+  &emsp;  `stream_client_fast.py` line 29
+
+  &emsp;  `stream_client.py` line 11
+
+  &emsp;  `ultrasonic_client.py` line 11
+
+  &emsp;  `stream_server_test.py` line 48
+
+  &emsp;  `ultrasonic_server_test.py` line 40
+
+
+1. **Testing:** Flash `boot.py`, `config.py` & `webrepl_cfg.py` to ESP8266 and run `rc_control_test.py` to drive the RC car with keyboard. Run `stream_server_test.py` on computer and then run `stream_client.py` on raspberry pi to test video streaming. Similarly, `ultrasonic_server_test.py` and `ultrasonic_client.py` can be used for sensor data streaming testing.   
 
 2. **Pi Camera calibration (optional):** Take multiple chess board images using pi camera module at various angles and put them into **`chess_board`** folder, run `picam_calibration.py` and returned parameters from the camera matrix will be used in `rc_driver.py`.
 

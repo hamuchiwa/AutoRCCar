@@ -9,7 +9,7 @@ from rc_driver_helper import RCControl
 
 class RCDriverNNOnly(object):
 
-    def __init__(self, host, port, serial_port, model_path):
+    def __init__(self, host, port, model_path):
 
         self.server_socket = socket.socket()
         self.server_socket.bind((host, port))
@@ -22,7 +22,7 @@ class RCDriverNNOnly(object):
         self.nn = NeuralNetwork()
         self.nn.load_model(model_path)
 
-        self.rc_car = RCControl(serial_port)
+        self.rc_car = RCControl()
 
     def drive(self):
         stream_bytes = b' '
@@ -64,14 +64,12 @@ class RCDriverNNOnly(object):
 
 
 if __name__ == '__main__':
+    # TODO: change this to match the PC's local IP. Leave the port unchanged
     # host, port
-    h, p = "192.168.1.100", 8000
-
-    # serial port
-    sp = "/dev/tty.usbmodem1421"
+    h, p = "192.168.4.2", 8000
 
     # model path
     path = "saved_model/nn_model.xml"
 
-    rc = RCDriverNNOnly(h, p, sp, path)
+    rc = RCDriverNNOnly(h, p, path)
     rc.drive()

@@ -3,28 +3,36 @@ __author__ = 'zhengwang'
 import serial
 import cv2
 import math
+import urllib.request as httpReq
 
 
 class RCControl(object):
 
-    def __init__(self, serial_port):
-        self.serial_port = serial.Serial(serial_port, 115200, timeout=1)
+    def __init__(self):
+        # self.serial_port = serial.Serial(serial_port, 115200, timeout=1)
+        # http://192.168.4.1/?motrCtrl(1,mode=0)&motrCtrl(2,mode=0)?/
+        self.httpURL = "http://192.168.4.1/?"
 
     def steer(self, prediction):
         if prediction == 2:
-            self.serial_port.write(chr(1).encode())
-            print("Forward")
+            # self.serial_port.write(chr(1).encode())
+            res = httpReq.urlopen(self.httpURL + "motrCtrl(1,1)&motrCtrl(2,1)?/")
+            print("Forward: " + res)
         elif prediction == 0:
-            self.serial_port.write(chr(7).encode())
-            print("Left")
+            # self.serial_port.write(chr(7).encode())
+            res = httpReq.urlopen(self.httpURL + "motrCtrl(1,-1)&motrCtrl(2,1)?/")
+            print("Left: " + res)
         elif prediction == 1:
-            self.serial_port.write(chr(6).encode())
-            print("Right")
+            # self.serial_port.write(chr(6).encode())
+            res = httpReq.urlopen(self.httpURL + "motrCtrl(1,1)&motrCtrl(2,-1)?/")
+            print("Right: " + res)
         else:
             self.stop()
 
     def stop(self):
-        self.serial_port.write(chr(0).encode())
+        # self.serial_port.write(chr(0).encode())
+        res = httpReq.urlopen(self.httpURL + "motrCtrl(1,0)&motrCtrl(2,0)?/")
+        print("Stop: "+ res)
 
 
 class DistanceToCamera(object):

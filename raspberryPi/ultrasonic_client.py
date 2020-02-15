@@ -8,7 +8,8 @@ GPIO.setwarnings(False)
 
 # create a socket and bind socket to the host
 client_socket = socket(AF_INET, SOCK_STREAM)
-client_socket.connect(('192.168.1.100', 8002))
+# TODO: change this to match the PC's local IP. Leave the port unchanged
+client_socket.connect(('192.168.4.2', 8002))
 
 def measure():
     """

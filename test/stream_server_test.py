@@ -45,6 +45,7 @@ class VideoStreamingTest(object):
 
 
 if __name__ == '__main__':
+    # TODO: change this to match the PC's local IP. Leave the port unchanged
     # host, port
-    h, p = "192.168.1.100", 8000
+    h, p = "192.168.4.2", 8000
     VideoStreamingTest(h, p)

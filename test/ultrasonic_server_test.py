@@ -24,11 +24,12 @@ class SensorStreamingTest(object):
             start = time.time()
 
             while True:
-                sensor_data = float(self.connection.recv(1024))
-                print("Distance: %0.1f cm" % sensor_data)
+                sensor_data = (self.connection.recv(1024))
+                print("Distance: %s cm" % sensor_data.decode())
 
                 # test for 10 seconds
                 if time.time() - start > 10:
+                    print("test timeout")
                     break
         finally:
             self.connection.close()
@@ -36,5 +37,6 @@ class SensorStreamingTest(object):
 
 
 if __name__ == '__main__':
-    h, p = "192.168.1.100", 8002
+    # TODO: change this to match the PC's local IP. Leave the port unchanged
+    h, p = "192.168.4.2", 8002
     SensorStreamingTest(h, p)
