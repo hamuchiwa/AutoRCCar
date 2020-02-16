@@ -8,6 +8,7 @@ from pygame.locals import *
 import socket
 import time
 import os
+import urllib.request as httpReq
 
 
 class CollectTrainingData(object):
@@ -20,6 +21,7 @@ class CollectTrainingData(object):
 
         # accept a single connection
         self.connection = self.server_socket.accept()[0].makefile('rb')
+        self.httpURL = "http://192.168.43.250/?"
 
         # connect to a serial port
         # self.ser = serial.Serial(serial_port, 115200, timeout=1)
@@ -179,7 +181,7 @@ class CollectTrainingData(object):
 if __name__ == '__main__':
     # TODO: change this to match the PC's local IP. Leave the port unchanged
     # host, port
-    h, p = "192.168.4.2", 8000
+    h, p = "192.168.43.94", 8000
 
     # vector size, half of the image
     s = 120 * 320

@@ -3,6 +3,7 @@ __author__ = 'zhengwang'
 import numpy as np
 import cv2
 import socket
+from time import sleep
 
 
 class VideoStreamingTest(object):
@@ -18,7 +19,7 @@ class VideoStreamingTest(object):
         self.streaming()
 
     def streaming(self):
-
+        print("server online")
         try:
             print("Host: ", self.host_name + ' ' + self.host_ip)
             print("Connection from: ", self.client_address)
@@ -39,6 +40,9 @@ class VideoStreamingTest(object):
 
                     if cv2.waitKey(1) & 0xFF == ord('q'):
                         break
+        except Exception as exep:
+            print ("Error: %s" %str(exep))
+            
         finally:
             self.connection.close()
             self.server_socket.close()
@@ -47,5 +51,5 @@ class VideoStreamingTest(object):
 if __name__ == '__main__':
     # TODO: change this to match the PC's local IP. Leave the port unchanged
     # host, port
-    h, p = "192.168.4.2", 8000
+    h, p = "192.168.43.94", 8000
     VideoStreamingTest(h, p)

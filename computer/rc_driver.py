@@ -184,7 +184,7 @@ class Server(object):
 
 if __name__ == '__main__':
     # TODO: change this to match the PC's local IP. Leave the port unchanged
-    h, p1, p2 = "192.168.4.2", 8000, 8002
+    h, p1, p2 = "192.168.43.94", 8000, 8002
 
     ts = Server(h, p1, p2)
     ts.start()

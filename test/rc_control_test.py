@@ -11,7 +11,7 @@ class RCTest(object):
     def __init__(self):
         pygame.init()
         pygame.display.set_mode((250, 250))
-        self.httpURL = "http://192.168.4.1/?"
+        self.httpURL = "http://192.168.43.250/?"
         # self.ser = serial.Serial("/dev/tty.usbmodem1421", 115200, timeout=1)    # mac
         # self.ser = serial.Serial("/dev/ttyACM0", 115200, timeout=1)           # linux
         self.send_inst = True
@@ -27,49 +27,49 @@ class RCTest(object):
                     # complex orders
                     if key_input[pygame.K_UP] and key_input[pygame.K_RIGHT]:
                         res = httpReq.urlopen(self.httpURL + "motrCtrl(1,0)&motrCtrl(2,1)?/")
-                        print("Forward Right: " + res)
+                        print("Forward Right: " + str(res))
                         # self.ser.write(chr(6).encode())
 
                     elif key_input[pygame.K_UP] and key_input[pygame.K_LEFT]:
                         res = httpReq.urlopen(self.httpURL + "motrCtrl(1,1)&motrCtrl(2,0)?/")
-                        print("Forward Left: " + res)
+                        print("Forward Left: " + str(res))
                         # self.ser.write(chr(7).encode())
 
                     elif key_input[pygame.K_DOWN] and key_input[pygame.K_RIGHT]:
                         res = httpReq.urlopen(self.httpURL + "motrCtrl(1,-1)&motrCtrl(2,1)?/")
-                        print("Reverse Right: " + res)
+                        print("Reverse Right: " + str(res))
                         # self.ser.write(chr(8).encode())
 
                     elif key_input[pygame.K_DOWN] and key_input[pygame.K_LEFT]:
                         res = httpReq.urlopen(self.httpURL + "motrCtrl(1,1)&motrCtrl(2,-1)?/")
-                        print("Reverse Left: " + res)
+                        print("Reverse Left: " + str(res))
                         # self.ser.write(chr(9).encode())
 
                     # simple orders
                     elif key_input[pygame.K_UP]:
                         res = httpReq.urlopen(self.httpURL + "motrCtrl(1,1)&motrCtrl(2,1)?/")
-                        print("Forward: " + res)
+                        print("Forward: " + str(res))
                         # self.ser.write(chr(1).encode())
 
                     elif key_input[pygame.K_DOWN]:
                         res = httpReq.urlopen(self.httpURL + "motrCtrl(1,-1)&motrCtrl(2,-1)?/")
-                        print("Reverse: " + res)
+                        print("Reverse: " + str(res))
                         # self.ser.write(chr(2).encode())
 
                     elif key_input[pygame.K_RIGHT]:
                         res = httpReq.urlopen(self.httpURL + "motrCtrl(1,0)&motrCtrl(2,1)?/")
-                        print("Right: " + res)
+                        print("Right: " + str(res))
                         # self.ser.write(chr(3).encode())
 
                     elif key_input[pygame.K_LEFT]:
                         res = httpReq.urlopen(self.httpURL + "motrCtrl(1,1)&motrCtrl(2,0)?/")
-                        print("Left: " + res)
+                        print("Left: " + str(res))
                         # self.ser.write(chr(4).encode())
 
                     # exit
                     elif key_input[pygame.K_x] or key_input[pygame.K_q]:
                         res = httpReq.urlopen(self.httpURL + "motrCtrl(1,0)&motrCtrl(2,0)?/")
-                        print("Exit: " + res)
+                        print("Exit: " + str(res))
                         self.send_inst = False
                         # self.ser.write(chr(0).encode())
                         # self.ser.close()
@@ -77,7 +77,7 @@ class RCTest(object):
 
                 elif event.type == pygame.KEYUP:
                     res = httpReq.urlopen(self.httpURL + "motrCtrl(1,0)&motrCtrl(2,0)?/")
-                    print("Exit: " + res)
+                    print("Exit: " + str(res))
                     # self.ser.write(chr(0).encode())
 
 

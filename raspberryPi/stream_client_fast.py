@@ -27,7 +27,7 @@ class SplitFrames(object):
 
 
 # TODO: change this to match the PC's local IP. Leave the port unchanged
-my_server = '192.168.4.2'
+my_server = '192.168.43.94'
 res = (320, 240)
 client_socket = socket.socket()
 client_socket.connect((my_server, 8000))

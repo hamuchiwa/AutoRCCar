@@ -9,7 +9,7 @@ GPIO.setwarnings(False)
 # create a socket and bind socket to the host
 client_socket = socket(AF_INET, SOCK_STREAM)
 # TODO: change this to match the PC's local IP. Leave the port unchanged
-client_socket.connect(('192.168.4.2', 8002))
+client_socket.connect(('192.168.43.94', 8002))
 
 def measure():
     """
@@ -48,9 +48,9 @@ GPIO.output(GPIO_TRIGGER, False)
 try:
     while True:
         distance = measure()
-        print "Distance : %.1f cm" % distance
+        print ("Distance : %.1f cm" % distance)
         # send data to the host every 0.5 sec
-        client_socket.send(str(distance))
+        client_socket.send(str(distance).encode())
         time.sleep(0.5)
 finally:
     client_socket.close()

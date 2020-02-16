@@ -18,6 +18,7 @@ class SensorStreamingTest(object):
 
     def streaming(self):
 
+        print("Initializing")
         try:
             print("Host: ", self.host_name + ' ' + self.host_ip)
             print("Connection from: ", self.client_address)
@@ -38,5 +39,5 @@ class SensorStreamingTest(object):
 
 if __name__ == '__main__':
     # TODO: change this to match the PC's local IP. Leave the port unchanged
-    h, p = "192.168.4.2", 8002
+    h, p = "192.168.43.94", 8002
     SensorStreamingTest(h, p)

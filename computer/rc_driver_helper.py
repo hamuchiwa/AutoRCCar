@@ -11,7 +11,7 @@ class RCControl(object):
     def __init__(self):
         # self.serial_port = serial.Serial(serial_port, 115200, timeout=1)
         # http://192.168.4.1/?motrCtrl(1,mode=0)&motrCtrl(2,mode=0)?/
-        self.httpURL = "http://192.168.4.1/?"
+        self.httpURL = "http://192.168.43.250/?"
 
     def steer(self, prediction):
         if prediction == 2:

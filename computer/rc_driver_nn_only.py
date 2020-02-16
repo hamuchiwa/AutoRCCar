@@ -66,7 +66,7 @@ class RCDriverNNOnly(object):
 if __name__ == '__main__':
     # TODO: change this to match the PC's local IP. Leave the port unchanged
     # host, port
-    h, p = "192.168.4.2", 8000
+    h, p = "192.168.43.94", 8000
 
     # model path
     path = "saved_model/nn_model.xml"
