@@ -107,6 +107,8 @@ def connect_wifi(ssid, authKey, disableAP):
                 sta_if.active(True)
                 log('connecting to %s Please wait' %str(ssid))
                 sta_if.connect(ssid, authKey)
+                while not sta_if.isconnected():
+                    pass
 
                 utime.sleep_ms(3000)
                 if not sta_if.isconnected():
@@ -116,7 +118,8 @@ def connect_wifi(ssid, authKey, disableAP):
                         utime.sleep_ms(500)
                         first_boot()
                 else:
-                        log('Connected to network')
+                        sta_if.ifconfig(('192.168.43.250','255.255.255.0','192.168.43.233','192.168.43.233'))
+                        log('Connected to %s @ %s' %(str(ssid), str(sta_if.ifconfig()[0])))
                         updateWifiState(WIFI_CONNECTED)
                         # disable the access point
                         (network.WLAN(network.AP_IF)).active(not disableAP)
@@ -209,8 +212,8 @@ def createServer():
                 import socket, network
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-                # TODO: get the ip address if connected to a foreign network
-                serverIp = '192.168.4.1'
+                # get the ip address if connected to a foreign network
+                serverIp = '192.168.43.250'
                 if (wifi_state == WIFI_CONNECTED):
                         conn = network.WLAN(network.STA_IF)
                         serverIp = conn.ifconfig()[0]
@@ -251,3 +254,9 @@ def createServer():
                         cxn.close()
 
 createServer()
+
+
+
+
+
+
