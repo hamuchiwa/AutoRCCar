@@ -1,11 +1,16 @@
 __author__ = 'zhengwang'
 
+import os, sys, inspect
+
+cd = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+pd = os.path.dirname(cd)
+sys.path.insert(0, pd)
+
 import cv2
-import sys
 import threading
 import socketserver
 import numpy as np
-
+import config
 
 from model import NeuralNetwork
 from rc_driver_helper import *
@@ -39,7 +44,7 @@ class VideoStreamHandler(socketserver.StreamRequestHandler):
     nn.load_model("saved_model/nn_model.xml")
 
     obj_detection = ObjectDetection()
-    rc_car = RCControl("/dev/tty.usbmodem1421") 
+    rc_car = RCControl() 
 
     # cascade classifiers
     stop_cascade = cv2.CascadeClassifier("cascade_xml/stop_sign.xml")
@@ -183,7 +188,7 @@ class Server(object):
 
 
 if __name__ == '__main__':
-    h, p1, p2 = "192.168.1.100", 8000, 8002
+    h, p1, p2 = config.serverIP, 8000, 8002
 
     ts = Server(h, p1, p2)
     ts.start()

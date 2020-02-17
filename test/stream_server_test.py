@@ -1,8 +1,17 @@
 __author__ = 'zhengwang'
 
+import os, sys, inspect
+
+cd = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+pd = os.path.dirname(cd)
+sys.path.insert(0, pd)
+
+import config
+
 import numpy as np
 import cv2
 import socket
+from time import sleep
 
 
 class VideoStreamingTest(object):
@@ -18,7 +27,7 @@ class VideoStreamingTest(object):
         self.streaming()
 
     def streaming(self):
-
+        print("server online")
         try:
             print("Host: ", self.host_name + ' ' + self.host_ip)
             print("Connection from: ", self.client_address)
@@ -39,6 +48,9 @@ class VideoStreamingTest(object):
 
                     if cv2.waitKey(1) & 0xFF == ord('q'):
                         break
+        except Exception as exep:
+            print ("Error: %s" %str(exep))
+            
         finally:
             self.connection.close()
             self.server_socket.close()
@@ -46,5 +58,5 @@ class VideoStreamingTest(object):
 
 if __name__ == '__main__':
     # host, port
-    h, p = "192.168.1.100", 8000
+    h, p = config.serverIP, 8000
     VideoStreamingTest(h, p)

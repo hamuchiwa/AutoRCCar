@@ -1,5 +1,11 @@
 __author__ = 'zhengwang'
 
+import os, sys, inspect
+
+cd = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+pd = os.path.dirname(cd)
+sys.path.insert(0, pd)
+
 import numpy as np
 import cv2
 import serial
@@ -7,12 +13,13 @@ import pygame
 from pygame.locals import *
 import socket
 import time
-import os
+import urllib.request as httpReq
+import config
 
 
 class CollectTrainingData(object):
     
-    def __init__(self, host, port, serial_port, input_size):
+    def __init__(self, host, port, input_size):
 
         self.server_socket = socket.socket()
         self.server_socket.bind((host, port))
@@ -20,9 +27,10 @@ class CollectTrainingData(object):
 
         # accept a single connection
         self.connection = self.server_socket.accept()[0].makefile('rb')
+        self.httpURL = config.httpURL
 
-        # connect to a seral port
-        self.ser = serial.Serial(serial_port, 115200, timeout=1)
+        # connect to a serial port
+        # self.ser = serial.Serial(serial_port, 115200, timeout=1)
         self.send_inst = True
 
         self.input_size = input_size
@@ -81,62 +89,72 @@ class CollectTrainingData(object):
 
                             # complex orders
                             if key_input[pygame.K_UP] and key_input[pygame.K_RIGHT]:
-                                print("Forward Right")
                                 X = np.vstack((X, temp_array))
                                 y = np.vstack((y, self.k[1]))
                                 saved_frame += 1
-                                self.ser.write(chr(6).encode())
+                                res = httpReq.urlopen(self.httpURL + "motrCtrl(1,0)&motrCtrl(2,1)?/")
+                                print("Forward Right: " + res)
+                                # self.ser.write(chr(6).encode())
 
                             elif key_input[pygame.K_UP] and key_input[pygame.K_LEFT]:
-                                print("Forward Left")
                                 X = np.vstack((X, temp_array))
                                 y = np.vstack((y, self.k[0]))
                                 saved_frame += 1
-                                self.ser.write(chr(7).encode())
+                                res = httpReq.urlopen(self.httpURL + "motrCtrl(1,1)&motrCtrl(2,0)?/")
+                                print("Forward Left: " + res)
+                                # self.ser.write(chr(7).encode())
 
                             elif key_input[pygame.K_DOWN] and key_input[pygame.K_RIGHT]:
-                                print("Reverse Right")
-                                self.ser.write(chr(8).encode())
+                                res = httpReq.urlopen(self.httpURL + "motrCtrl(1,-1)&motrCtrl(2,1)?/")
+                                print("Reverse Right: " + res)
+                                # self.ser.write(chr(8).encode())
 
                             elif key_input[pygame.K_DOWN] and key_input[pygame.K_LEFT]:
-                                print("Reverse Left")
-                                self.ser.write(chr(9).encode())
+                                res = httpReq.urlopen(self.httpURL + "motrCtrl(1,1)&motrCtrl(2,-1)?/")
+                                print("Reverse Left: " + res)
+                                # self.ser.write(chr(9).encode())
 
                             # simple orders
                             elif key_input[pygame.K_UP]:
-                                print("Forward")
                                 saved_frame += 1
                                 X = np.vstack((X, temp_array))
                                 y = np.vstack((y, self.k[2]))
-                                self.ser.write(chr(1).encode())
+                                res = httpReq.urlopen(self.httpURL + "motrCtrl(1,1)&motrCtrl(2,1)?/")
+                                print("Forward: " + res)
+                                # self.ser.write(chr(1).encode())
 
                             elif key_input[pygame.K_DOWN]:
-                                print("Reverse")
-                                self.ser.write(chr(2).encode())
+                                res = httpReq.urlopen(self.httpURL + "motrCtrl(1,-1)&motrCtrl(2,-1)?/")
+                                print("Reverse: " + res)
+                                # self.ser.write(chr(2).encode())
 
                             elif key_input[pygame.K_RIGHT]:
-                                print("Right")
                                 X = np.vstack((X, temp_array))
                                 y = np.vstack((y, self.k[1]))
                                 saved_frame += 1
-                                self.ser.write(chr(3).encode())
+                                res = httpReq.urlopen(self.httpURL + "motrCtrl(1,0)&motrCtrl(2,1)?/")
+                                print("Right: " + res)
+                                # self.ser.write(chr(3).encode())
 
                             elif key_input[pygame.K_LEFT]:
-                                print("Left")
                                 X = np.vstack((X, temp_array))
                                 y = np.vstack((y, self.k[0]))
                                 saved_frame += 1
-                                self.ser.write(chr(4).encode())
+                                res = httpReq.urlopen(self.httpURL + "motrCtrl(1,1)&motrCtrl(2,0)?/")
+                                print("Left: " + res)
+                                # self.ser.write(chr(4).encode())
 
                             elif key_input[pygame.K_x] or key_input[pygame.K_q]:
-                                print("exit")
                                 self.send_inst = False
-                                self.ser.write(chr(0).encode())
-                                self.ser.close()
+                                res = httpReq.urlopen(self.httpURL + "motrCtrl(1,0)&motrCtrl(2,0)?/")
+                                print("Exit: " + res)
+                                # self.ser.close()
                                 break
 
                         elif event.type == pygame.KEYUP:
-                            self.ser.write(chr(0).encode())
+                            res = httpReq.urlopen(self.httpURL + "motrCtrl(1,0)&motrCtrl(2,0)?/")
+                            print("Exit: " + res)
+                            # self.ser.write(chr(0).encode())
 
                     if cv2.waitKey(1) & 0xFF == ord('q'):
                         break
@@ -168,13 +186,10 @@ class CollectTrainingData(object):
 
 if __name__ == '__main__':
     # host, port
-    h, p = "192.168.1.100", 8000
-
-    # serial port
-    sp = "/dev/tty.usbmodem1421"
+    h, p = config.serverIP, 8000
 
     # vector size, half of the image
     s = 120 * 320
 
-    ctd = CollectTrainingData(h, p, sp, s)
+    ctd = CollectTrainingData(h, p, s)
     ctd.collect()

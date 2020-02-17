@@ -1,5 +1,13 @@
 __author__ = 'zhengwang'
 
+import os, sys, inspect
+
+cd = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+pd = os.path.dirname(cd)
+sys.path.insert(0, pd)
+
+import config
+
 import socket
 import time
 
@@ -18,17 +26,19 @@ class SensorStreamingTest(object):
 
     def streaming(self):
 
+        print("Initializing")
         try:
             print("Host: ", self.host_name + ' ' + self.host_ip)
             print("Connection from: ", self.client_address)
             start = time.time()
 
             while True:
-                sensor_data = float(self.connection.recv(1024))
-                print("Distance: %0.1f cm" % sensor_data)
+                sensor_data = (self.connection.recv(1024))
+                print("Distance: %s cm" % sensor_data.decode())
 
                 # test for 10 seconds
                 if time.time() - start > 10:
+                    print("test timeout")
                     break
         finally:
             self.connection.close()
@@ -36,5 +46,5 @@ class SensorStreamingTest(object):
 
 
 if __name__ == '__main__':
-    h, p = "192.168.1.100", 8002
+    h, p = config.serverIP, 8002
     SensorStreamingTest(h, p)

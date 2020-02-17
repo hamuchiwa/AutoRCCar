@@ -1,15 +1,22 @@
 
+import os, sys, inspect
+
+cd = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+pd = os.path.dirname(cd)
+sys.path.insert(0, pd)
+
 import cv2
 import numpy as np
 import socket
 import serial
 from model import NeuralNetwork
 from rc_driver_helper import RCControl
+import config
 
 
 class RCDriverNNOnly(object):
 
-    def __init__(self, host, port, serial_port, model_path):
+    def __init__(self, host, port, model_path):
 
         self.server_socket = socket.socket()
         self.server_socket.bind((host, port))
@@ -22,7 +29,7 @@ class RCDriverNNOnly(object):
         self.nn = NeuralNetwork()
         self.nn.load_model(model_path)
 
-        self.rc_car = RCControl(serial_port)
+        self.rc_car = RCControl()
 
     def drive(self):
         stream_bytes = b' '
@@ -65,13 +72,10 @@ class RCDriverNNOnly(object):
 
 if __name__ == '__main__':
     # host, port
-    h, p = "192.168.1.100", 8000
-
-    # serial port
-    sp = "/dev/tty.usbmodem1421"
+    h, p = config.serverIP, 8000
 
     # model path
     path = "saved_model/nn_model.xml"
 
-    rc = RCDriverNNOnly(h, p, sp, path)
+    rc = RCDriverNNOnly(h, p, path)
     rc.drive()

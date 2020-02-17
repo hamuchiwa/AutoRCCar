@@ -1,9 +1,16 @@
+import os, sys, inspect
+
+cd = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+pd = os.path.dirname(cd)
+sys.path.insert(0, pd)
+
+import config
+
 import io
 import socket
 import struct
 import time
 import picamera
-import sys
 
 class SplitFrames(object):
     def __init__(self, connection):
@@ -25,7 +32,8 @@ class SplitFrames(object):
                 self.stream.seek(0)
         self.stream.write(buf)
 
-my_server = '192.168.1.100'
+
+my_server = config.serverIP
 res = (320, 240)
 client_socket = socket.socket()
 client_socket.connect((my_server, 8000))
