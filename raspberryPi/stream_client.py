@@ -1,3 +1,10 @@
+import os, sys, inspect
+
+cd = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+pd = os.path.dirname(cd)
+sys.path.insert(0, pd)
+
+import config
 
 import io
 import socket
@@ -8,8 +15,7 @@ from picamera import PiCamera
 
 # create socket and bind host
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# TODO: change this to match the PC's local IP. Leave the port unchanged
-client_socket.connect(('192.168.43.94', 8000))
+client_socket.connect((config.serverIP, 8000))
 connection = client_socket.makefile('wb')
 
 try:

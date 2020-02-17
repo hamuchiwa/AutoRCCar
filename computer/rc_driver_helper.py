@@ -1,9 +1,16 @@
 __author__ = 'zhengwang'
 
+import os, sys, inspect
+
+cd = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+pd = os.path.dirname(cd)
+sys.path.insert(0, pd)
+
 import serial
 import cv2
 import math
 import urllib.request as httpReq
+import config
 
 
 class RCControl(object):
@@ -11,7 +18,7 @@ class RCControl(object):
     def __init__(self):
         # self.serial_port = serial.Serial(serial_port, 115200, timeout=1)
         # http://192.168.4.1/?motrCtrl(1,mode=0)&motrCtrl(2,mode=0)?/
-        self.httpURL = "http://192.168.43.250/?"
+        self.httpURL = config.httpURL
 
     def steer(self, prediction):
         if prediction == 2:

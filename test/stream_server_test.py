@@ -1,5 +1,13 @@
 __author__ = 'zhengwang'
 
+import os, sys, inspect
+
+cd = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+pd = os.path.dirname(cd)
+sys.path.insert(0, pd)
+
+import config
+
 import numpy as np
 import cv2
 import socket
@@ -49,7 +57,6 @@ class VideoStreamingTest(object):
 
 
 if __name__ == '__main__':
-    # TODO: change this to match the PC's local IP. Leave the port unchanged
     # host, port
-    h, p = "192.168.43.94", 8000
+    h, p = config.serverIP, 8000
     VideoStreamingTest(h, p)

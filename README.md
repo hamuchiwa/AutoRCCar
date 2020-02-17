@@ -57,24 +57,9 @@ This project builds a self-driving RC car using Raspberry Pi, Arduino and open s
 
 ### How to drive
 
-***Note Remember to do the TODOs in the following files:***
+***Note: Remember to do the TODO in the following file:***
 
-  &emsp;  `collect_training_data.py` line 180
-
-  &emsp;  `rc_driver_nn_only.py` line 67
-
-  &emsp;  `rc_driver.py` line 186
-
-  &emsp;  `stream_client_fast.py` line 29
-
-  &emsp;  `stream_client.py` line 11
-
-  &emsp;  `ultrasonic_client.py` line 11
-
-  &emsp;  `stream_server_test.py` line 48
-
-  &emsp;  `ultrasonic_server_test.py` line 40
-
+  &emsp;  `config.py` **line 2**
 
 1. **Testing:** Flash `boot.py`, `config.py` & `webrepl_cfg.py` to ESP8266 and run `rc_control_test.py` to drive the RC car with keyboard. Run `stream_server_test.py` on computer and then run `stream_client.py` on raspberry pi to test video streaming. Similarly, `ultrasonic_server_test.py` and `ultrasonic_client.py` can be used for sensor data streaming testing.   
 

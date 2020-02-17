@@ -1,10 +1,17 @@
 
+import os, sys, inspect
+
+cd = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+pd = os.path.dirname(cd)
+sys.path.insert(0, pd)
+
 import cv2
 import numpy as np
 import socket
 import serial
 from model import NeuralNetwork
 from rc_driver_helper import RCControl
+import config
 
 
 class RCDriverNNOnly(object):
@@ -64,9 +71,8 @@ class RCDriverNNOnly(object):
 
 
 if __name__ == '__main__':
-    # TODO: change this to match the PC's local IP. Leave the port unchanged
     # host, port
-    h, p = "192.168.43.94", 8000
+    h, p = config.serverIP, 8000
 
     # model path
     path = "saved_model/nn_model.xml"

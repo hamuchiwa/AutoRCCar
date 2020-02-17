@@ -1,11 +1,16 @@
 __author__ = 'zhengwang'
 
+import os, sys, inspect
+
+cd = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+pd = os.path.dirname(cd)
+sys.path.insert(0, pd)
+
 import cv2
-import sys
 import threading
 import socketserver
 import numpy as np
-
+import config
 
 from model import NeuralNetwork
 from rc_driver_helper import *
@@ -183,8 +188,7 @@ class Server(object):
 
 
 if __name__ == '__main__':
-    # TODO: change this to match the PC's local IP. Leave the port unchanged
-    h, p1, p2 = "192.168.43.94", 8000, 8002
+    h, p1, p2 = config.serverIP, 8000, 8002
 
     ts = Server(h, p1, p2)
     ts.start()

@@ -1,5 +1,13 @@
 __author__ = 'zhengwang'
 
+import os, sys, inspect
+
+cd = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+pd = os.path.dirname(cd)
+sys.path.insert(0, pd)
+
+import config
+
 import serial
 import pygame
 import urllib.request as httpReq
@@ -11,7 +19,7 @@ class RCTest(object):
     def __init__(self):
         pygame.init()
         pygame.display.set_mode((250, 250))
-        self.httpURL = "http://192.168.43.250/?"
+        self.httpURL = config.httpURL
         # self.ser = serial.Serial("/dev/tty.usbmodem1421", 115200, timeout=1)    # mac
         # self.ser = serial.Serial("/dev/ttyACM0", 115200, timeout=1)           # linux
         self.send_inst = True
