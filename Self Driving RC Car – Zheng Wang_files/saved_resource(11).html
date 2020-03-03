@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)https://public-api.wordpress.com/wp-admin/rest-proxy/#https://widgets.wp.com -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="saved_resource(9)"></script>
+
+<script>
+(function() {
+var receiveMessage, sendMessage, sendError, cookies, cookie = '', i, ajaxSetup = { dataType: 'json' },
+    bufferMessage = true, emptyBuffer, buffer = [],
+    origin = window.location.hash.replace( '#', '' ).split( '/', 3 ).join( '/' ),
+    giveMeAccessToAllUsersBlogs = false,
+    usePM = false,
+    headersWhiteList = ['Date', 'Content-Type'], // headers provided to the proxied callback
+    getResponseHeaders, normalizeData;
+
+var allBlogWhitelist = [
+	'https://mc.a8c.com',
+];
+
+var originWhitelist = [
+	'https://wordpress.com',
+	'http://widgets.wp.com',
+	'https://widgets.wp.com',
+	'http://wpeditor.org',
+	'https://dev-mc.a8c.com',
+	'https://mc.a8c.com',
+	'https://wpeditor.org',
+	'http://calypso.dev:3000',
+	'https://calypso.dev:3000',
+	'http://calypso.dev:3001',
+	'https://calypso.dev:3001',
+	'http://calypso.localhost:3000',
+	'https://calypso.localhost:3000',
+	'http://calypso.localhost:3001',
+	'https://calypso.localhost:3001',
+	'http://notifications.dev:3000',
+	'http://notifications.dev:8888',
+	'https://notifications.dev:3000',
+	'https://automattic.github.io',
+	'http://wpeditor.local',
+	'http://wpeditor.local:3000',
+	'http://wpeditor.local:8888',
+	'https://wpeditor.local',
+	'https://wpeditor.local:3000',
+	'https://wpeditor.local:8888',
+	'http://wpeditor.dev',
+	'http://wpeditor.dev:8888',
+	'https://wpeditor.dev',
+	'https://wpeditor.dev:8888',
+];
+
+if ( !origin ) {
+	return;
+}
+
+if ( jQuery.inArray( origin, allBlogWhitelist ) > -1 ) {
+	giveMeAccessToAllUsersBlogs = true;
+}
+
+receiveMessage = function( event ) {
+	var data, i, url, acceptsVariableArgs, opts, sendAsString = false;
+
+	if ( !usePM ) {
+		if ( 'string' === typeof event ) {
+			event = JSON.parse( event );
+		}
+
+		if ( origin !== event.origin ) {
+			return;
+		}
+
+		if ( bufferMessage ) {
+			buffer.push( { data: event.data, origin: event.origin } );
+			return;
+		}
+
+		if ( 'string' === typeof event.data ) {
+			data = JSON.parse( event.data );
+			sendAsString = true;
+		} else {
+			data = event.data;
+		}
+	} else {
+		if ( bufferMessage ) {
+			buffer.push( event );
+			return;
+		}
+
+		data = event;
+	}
+
+	if ( 'undefined' !== typeof data.metaAPI && data.metaAPI ) {
+		if ( 'undefined' !== typeof data.metaAPI.accessAllUsersBlogs ) {
+			giveMeAccessToAllUsersBlogs = !!data.metaAPI.accessAllUsersBlogs; // (bool)
+		}
+
+		sendMessage( data.callback, sendAsString )( data.metaAPI );
+		return;
+	}
+
+	if ( 'string' !== typeof data.apiVersion ) {
+		// default to api v1
+		data.apiVersion = '1';
+
+		if ( data.version ) {
+		// legacy support for specifying api version
+			data.apiVersion = data.version.replace(/[^0-9\.]/,'');
+		}
+	}
+
+	url = window.location.protocol + '//public-api.wordpress.com/rest/v' + data.apiVersion + data.path + '?http_envelope=1';
+	if ( data.query ) {
+		if ( 'string' === typeof data.query ) {
+			url += '&' + data.query.replace( /^&/, '' );
+		} else {
+			url += '&' + jQuery.param( data.query );
+		}
+	}
+	acceptsVariableArgs = data.supports_args;
+	opts = {
+		url : url,
+		type : data.method,
+		success : sendMessage( data.callback, sendAsString, acceptsVariableArgs ),
+		error : sendError( data.callback, sendAsString )
+	};
+
+	if ( data.token ) {
+		opts.beforeSend = function( jqXHR ) {
+			jqXHR.setRequestHeader( 'Authorization', 'Bearer ' + data.token );
+		};
+	}
+
+	if ( data.body ) {
+		opts.data = data.body;
+	} else if ( data.formData && data.formData.length > 0 ) {
+		// FormData instances cannot be passed over the <iframe> postMessage machinery,
+		// so instead the host page needs to pass over a 2D `formData` array of fields
+		// to append to the request. This makes it possible to do client-side uploads.
+		opts.data = new FormData();
+		opts.cache = false;
+		opts.contentType = false;
+		opts.processData = false;
+		for ( i = 0; i < data.formData.length; i++ ) {
+
+			// For browsers that don't like sending `File` instances cross-domain (looking at you Firefox)
+			// we implement this workaround by sending the File as an `ArrayBuffer` and recreating the blob instead
+			if ( 'object' == typeof data.formData[i][1] && 'undefined' != typeof data.formData[i][1].fileContents ) {
+				var key = data.formData[i][0],
+					name = data.formData[i][1].fileName,
+					blob = new Blob( [ data.formData[i][1].fileContents ], { type: data.formData[i][1].mimeType });
+				opts.data.append( key, blob, name );
+			} else {
+				opts.data.append( data.formData[i][0], data.formData[i][1] );
+			}
+		}
+	}
+
+	function onuploadprogress( e ) {
+		var c = {
+			upload: true,
+			lengthComputable: e.lengthComputable,
+			loaded: e.loaded,
+			total: e.total,
+			callbackId: data.callback
+		};
+		window.parent.postMessage( c, origin );
+	}
+
+	function ondownloadprogress( e ) {
+		var c = {
+			download: true,
+			lengthComputable: e.lengthComputable,
+			loaded: e.loaded,
+			total: e.total,
+			callbackId: data.callback
+		};
+		window.parent.postMessage( c, origin );
+	}
+
+	if ( data.supports_progress ) {
+		// http://stackoverflow.com/a/19127053/376773
+		opts.xhr = function() {
+			var xhr = new XMLHttpRequest();
+
+			// upload "progress" events
+			xhr.upload.onprogress = onuploadprogress;
+
+			// download "progress" events
+			xhr.onprogress = ondownloadprogress;
+
+			return xhr;
+		};
+	}
+
+	// fire off the ajax call
+	jQuery.ajax( opts );
+};
+
+// IE 8 has postMessage, but uses attachEvent instead of addEventListener
+if ( window.postMessage && ( window.addEventListener || window.attachEvent ) ) {
+	// jQuery abstracts this away for us
+	jQuery(window).on( 'message', function( e ) { receiveMessage( e.originalEvent ); } );
+} else {
+	usePM = true;
+	pm.bind( 'proxy', receiveMessage );
+}
+
+cookies = document.cookie.split( /;\s*/ );
+for ( i = 0; i < cookies.length; i++ ) {
+	if ( cookies[i].match( /^wp_api=/ ) ) {
+		cookies = cookies[i].split( '=' );
+		cookie = cookies[1];
+		break;
+	}
+}
+
+if ( cookie ) {
+	ajaxSetup['beforeSend'] = function( jqXHR ) {
+		if ( giveMeAccessToAllUsersBlogs ) {
+			jqXHR.setRequestHeader( 'Authorization', 'X-WPCOOKIE ' + cookie + ':1:' + origin );
+		} else {
+			jqXHR.setRequestHeader( 'Authorization', 'X-WPCOOKIE ' + cookie + ':0:' + origin );
+		}
+	};
+}
+
+jQuery.ajaxSetup( ajaxSetup );
+
+emptyBuffer = function(){
+	var event;
+	while(event = buffer.shift()){
+		receiveMessage( event );
+	}
+};
+
+if ( jQuery.inArray( origin, originWhitelist ) > -1 || origin.match( /^https:\/\/[a-z0-9-]+\.wordpress\.com$/ ) ) {
+	bufferMessage = false;
+	emptyBuffer();
+}
+else {
+	jQuery.get( window.location.protocol + '//public-api.wordpress.com/rest/v1/sites/' + encodeURIComponent( origin ) + '?http_envelope=1&check_wpcom=1' ).done( function( response ) {
+		if ( 'undefined' === typeof response.code || 200 !== response.code || 'undefined' === typeof response.body.isWPcom || true !== response.body.isWPcom ) {
+			window.removeEventListener( 'message', receiveMessage );
+			buffer = [];
+			return;
+		}
+		bufferMessage = false;
+		emptyBuffer();
+	} );
+}
+
+sendMessage = function( callback, sendAsString, acceptsVariableArgs ) {
+	return function( data, textStatus, jqXHR ) {
+		var headers, info;
+
+		data = normalizeData( data, textStatus, jqXHR );
+		headers = getResponseHeaders( data, jqXHR );
+		info = [ data.body, data.code, headers, callback ];
+
+		// For older versions of wpcom-proxy-request that only accept 2 args and callback
+		if ( !acceptsVariableArgs ) {
+			info = [ data.body, data.code, callback ];
+		}
+		if ( sendAsString ) {
+			info = JSON.stringify( info );
+		}
+		if ( !usePM ) {
+			window.parent.postMessage( info, origin );
+		} else {
+			pm( {
+				data:   info,
+				type:   'proxy',
+				target: window.parent,
+				origin: origin
+			} );
+		}
+	}
+};
+
+getResponseHeaders = function( data, jqXHR ){
+	var envelopeHeaders = [],
+		headers = {},
+		whiteListed = {},
+		hasXHR = jqXHR && 'function' === typeof(jqXHR.getResponseHeader);
+	if ( data && data.headers ) {
+		envelopeHeaders = data.headers;
+	}
+	// first pull out any of the envelope headers with a case-insensitive match
+	jQuery.each(envelopeHeaders, function(i, header){
+		headers[header.name.toUpperCase()] = header.value;
+	});
+	// loop through the white-listed headers and grab the enveloped headers if available,
+	// otherwise getResponseHeader if we can
+	jQuery.each(headersWhiteList, function(i, headerName){
+		var headerNameUpper = headerName.toUpperCase();
+		if ( headers[headerNameUpper]) {
+			whiteListed[headerName] = headers[headerNameUpper];
+		} else if (hasXHR) {
+			whiteListed[headerName] = jqXHR.getResponseHeader(headerName);
+		}
+	});
+	return whiteListed;
+};
+
+normalizeData = function( data, textStatus, jqXHR ) {
+	if ( textStatus !== 'nocontent' ) {
+		return data;
+	}
+
+	return {
+		body: jqXHR.responseText,
+		code: jqXHR.status
+	};
+};
+
+sendError = function( callback, sendAsString ) {
+	return function() {
+		var info;
+		if ( sendAsString ) {
+			info = JSON.stringify( [ 'error', 0, callback ] );
+		} else {
+			info = [ 'error', 0, callback ];
+		}
+
+		if ( !usePM ) {
+			window.parent.postMessage( info, origin );
+		} else {
+			pm( {
+				data:   info,
+				type:   'proxy',
+				target: window.parent,
+				origin: origin
+			} );
+		}
+	}
+};
+
+})();
+</script>
+</head>
+<body>
+</body></html>

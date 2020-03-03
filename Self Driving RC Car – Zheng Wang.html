@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)https://zhengludwig.wordpress.com/projects/self-driving-rc-car/ -->
+<html lang="en" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="https://zhengludwig.wordpress.com/xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="https://s0.wp.com/wp-content/themes/pub/twentyfifteen/js/html5.js"></script>
+	<![endif]-->
+	<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>Self Driving RC Car – Zheng Wang</title>
+<link rel="alternate" type="application/rss+xml" title="Zheng Wang » Feed" href="https://zhengludwig.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Zheng Wang » Comments Feed" href="https://zhengludwig.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Zheng Wang » Self Driving RC Car Comments Feed" href="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/feed/">
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+	<link rel="stylesheet" id="all-css-0" href="./Self Driving RC Car – Zheng Wang_files/saved_resource" type="text/css" media="all">
+<link rel="stylesheet" id="twentyfifteen-fonts-css" href="./Self Driving RC Car – Zheng Wang_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="all-css-2" href="./Self Driving RC Car – Zheng Wang_files/saved_resource(1)" type="text/css" media="all">
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentyfifteen-ie-css'  href='https://s0.wp.com/wp-content/themes/pub/twentyfifteen/css/ie.css?m=1421363535g&#038;ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='twentyfifteen-ie7-css'  href='https://s0.wp.com/wp-content/themes/pub/twentyfifteen/css/ie7.css?m=1418225460g&#038;ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="all-css-6" href="./Self Driving RC Car – Zheng Wang_files/saved_resource(2)" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var LoggedOutFollow = {"invalid_email":"Your subscription did not succeed, please try again with a valid email address."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Self Driving RC Car – Zheng Wang_files/saved_resource(3)"></script>
+<link rel="stylesheet" id="all-css-0" href="./Self Driving RC Car – Zheng Wang_files/style.css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563g&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://zhengludwig.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/">
+<link rel="shortlink" href="http://wp.me/P6rpUM-p">
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=json&amp;url=https%3A%2F%2Fzhengludwig.wordpress.com%2Fprojects%2Fself-driving-rc-car%2F&amp;for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=xml&amp;url=https%3A%2F%2Fzhengludwig.wordpress.com%2Fprojects%2Fself-driving-rc-car%2F&amp;for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Self Driving RC Car">
+<meta property="og:url" content="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/">
+<meta property="og:description" content="Python + OpenCV Neural Network + Haar-Cascade Classifiers Objective Modify a RC car to handle three tasks: self-driving on the track, stop sign and traffic light detection, and front collision avoi...">
+<meta property="article:published_time" content="2015-07-08T13:50:00+00:00">
+<meta property="article:modified_time" content="2015-08-21T17:00:14+00:00">
+<meta property="og:site_name" content="Zheng Wang">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/07/img_8988.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/07/img_8988.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/07/img_8991.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/07/img_8991.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/07/img_8984e589afe69cac.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/07/img_8984e589afe69cac.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/07/img_9001.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/07/img_9001.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/07/img_8993.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/07/img_8993.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/07/img_9006.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/07/img_9006.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/07/img_9007.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/07/img_9007.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/07/img_9008.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/07/img_9008.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/07/mlp_half_32-2.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/07/mlp_half_32-2.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/07/collect_train_data.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/07/collect_train_data.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/08/pos_neg_samples.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/08/pos_neg_samples.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/08/sample_tabel.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/08/sample_tabel.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/07/brightest_spot.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/07/brightest_spot.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/07/distant.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/07/distant.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/07/distance_measure.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/07/distance_measure.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/07/pi_cam_matrix.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/07/pi_cam_matrix.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/07/drive_test01.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/07/drive_test01.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/07/drive_test02.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/07/drive_test02.jpg">
+<meta property="og:image" content="https://zhengludwig.files.wordpress.com/2015/07/camera_measure2.jpg">
+<meta property="og:image:secure_url" content="https://zhengludwig.files.wordpress.com/2015/07/camera_measure2.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:site" content="@wordpressdotcom">
+<meta name="twitter:image0" content="https://zhengludwig.files.wordpress.com/2015/07/img_8988.jpg?w=640">
+<meta name="twitter:image1" content="https://zhengludwig.files.wordpress.com/2015/07/img_8991.jpg?w=640">
+<meta name="twitter:image2" content="https://zhengludwig.files.wordpress.com/2015/07/img_8984e589afe69cac.jpg?w=640">
+<meta name="twitter:image3" content="https://zhengludwig.files.wordpress.com/2015/07/img_9001.jpg?w=640">
+<meta name="twitter:card" content="gallery">
+<meta property="fb:app_id" content="249643311490">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+<link rel="shortcut icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="https://s0.wp.com/i/webclip.png">
+<link rel="openid.server" href="https://zhengludwig.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="https://zhengludwig.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="https://zhengludwig.wordpress.com/osd.xml" title="Zheng Wang">
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com">
+		<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="Zheng Wang"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-task" content="name=Subscribe;action-uri=https://zhengludwig.wordpress.com/feed/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="title" content="Self Driving RC Car | Zheng Wang on WordPress.com">
+<meta name="description" content="Python + OpenCV Neural Network + Haar-Cascade Classifiers Objective Modify a RC car to handle three tasks: self-driving on the track, stop sign and traffic light detection, and front collision avoidance. System Design The system consists of three subsystems: input unit (camera, ultrasonic sensor), processing unit (computer) and RC car control unit. Input Unit A…">
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+<style type="text/css"></style><script type="text/javascript" async="" src="./Self Driving RC Car – Zheng Wang_files/saved_resource(4)"></script><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./Self Driving RC Car – Zheng Wang_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./Self Driving RC Car – Zheng Wang_files/services.css"><script type="text/javascript" async="" src="./Self Driving RC Car – Zheng Wang_files/saved_resource(5)"></script></head>
+
+<body class="page page-id-25 page-child parent-pageid-35 page-template-default mp6 customizer-styles-applied highlander-enabled highlander-light">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/#content">Skip to content</a>
+
+	<div id="sidebar" class="sidebar" style="top: 6915.296875px;">
+		<header id="masthead" class="site-header" role="banner">
+			<div class="site-branding">
+				
+										<p class="site-title"><a href="https://zhengludwig.wordpress.com/" rel="home">Zheng Wang</a></p>
+									<button class="secondary-toggle">Menu and widgets</button>
+			</div><!-- .site-branding -->
+		</header><!-- .site-header -->
+
+			<div id="secondary" class="secondary">
+
+					<nav id="site-navigation" class="main-navigation" role="navigation">
+				<div class="menu-home-container"><ul id="menu-home" class="nav-menu"><li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11"><a href="https://zhengludwig.wordpress.com/about/">About</a></li>
+<li id="menu-item-26" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current-menu-parent current-page-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-26"><a href="https://zhengludwig.wordpress.com/projects/">Projects</a><button class="dropdown-toggle toggle-on" aria-expanded="false"><span class="screen-reader-text">expand child menu</span></button>
+<ul class="sub-menu toggled-on">
+	<li id="menu-item-322" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-322"><a href="https://zhengludwig.wordpress.com/projects/bsu-walking-tour/">BSU Walking Tour</a></li>
+	<li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33"><a href="https://zhengludwig.wordpress.com/projects/flocking-demo/">Flocking Demo</a></li>
+	<li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-25 current_page_item menu-item-28"><a href="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/">Self Driving RC Car</a></li>
+	<li id="menu-item-347" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-347"><a href="https://zhengludwig.wordpress.com/projects/sliding-puzzle/">Sliding Puzzle</a></li>
+</ul>
+</li>
+<li id="menu-item-403" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-403"><a href="https://zhengludwig.wordpress.com/galleries/">Galleries</a><button class="dropdown-toggle" aria-expanded="false"><span class="screen-reader-text">expand child menu</span></button>
+<ul class="sub-menu">
+	<li id="menu-item-509" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-509"><a href="https://zhengludwig.wordpress.com/adventure/">Adventure</a></li>
+	<li id="menu-item-425" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-425"><a href="https://zhengludwig.wordpress.com/bw-film/">B&amp;W Film</a></li>
+	<li id="menu-item-414" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-414"><a href="https://zhengludwig.wordpress.com/infared/">Infrared Filter</a></li>
+	<li id="menu-item-436" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-436"><a href="https://zhengludwig.wordpress.com/dabai-and-xiaobai/">大白和小白</a></li>
+</ul>
+</li>
+</ul></div>			</nav><!-- .main-navigation -->
+		
+					<nav id="social-navigation" class="social-navigation" role="navigation">
+				<div class="menu-social-links-container"><ul id="menu-social-links" class="menu"><li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-6"><a href="https://www.facebook.com/zheng.wang.7798"><span class="screen-reader-text">Facebook</span></a></li>
+<li id="menu-item-7" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7"><a href="https://github.com/hamuchiwa/"><span class="screen-reader-text">Github</span></a></li>
+</ul></div>			</nav><!-- .social-navigation -->
+		
+					<div id="widget-area" class="widget-area" role="complementary">
+				<aside id="text-3" class="widget widget_text">			<div class="textwidget"><p>© 2015 Zheng Wang</p>
+</div>
+		</aside>			</div><!-- .widget-area -->
+		
+	</div><!-- .secondary -->
+
+	</div><!-- .sidebar -->
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+<article id="post-25" class="post-25 page type-page status-publish hentry">
+	
+	<header class="entry-header">
+		<h1 class="entry-title">Self Driving RC&nbsp;Car</h1>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p style="font-size:16px;">Python + OpenCV Neural Network + Haar-Cascade Classifiers</p>
+<div class="jetpack-video-wrapper"><span class="embed-youtube" style="text-align:center; display: block;"><iframe class="youtube-player" type="text/html" src="./Self Driving RC Car – Zheng Wang_files/BBwEF6WBUQs.html" frameborder="0" allowfullscreen="true" data-ratio="0.6090909090909091" data-width="660" data-height="402" style="display: block; margin: 0px; width: 635px; height: 386.773px;"></iframe></span></div>
+<h4 style="font-size:20px;">Objective</h4>
+<p style="font-size:16px;">Modify a RC car to handle three tasks: self-driving on the track, stop sign and traffic light detection, and front collision avoidance.</p>
+<h4 style="font-size:20px;">System Design</h4>
+<p style="font-size:16px;">The system consists of three subsystems: input unit (camera, ultrasonic sensor), processing unit (computer) and RC car control unit.</p>
+<div class="tiled-gallery type-rectangular" data-original-width="660" data-carousel-extra="{&quot;blog_id&quot;:95192492,&quot;permalink&quot;:&quot;https:\/\/zhengludwig.wordpress.com\/projects\/self-driving-rc-car\/&quot;,&quot;likes_blog_id&quot;:95192492}"> <div class="gallery-row" style="width: 635px; height: 361px;" data-original-width="660" data-original-height="376"> <div class="gallery-group images-3" style="width: 186px; height: 361px;" data-original-width="194" data-original-height="376"> <div class="tiled-gallery-item tiled-gallery-item-small"> <img data-attachment-id="152" data-orig-file="https://zhengludwig.files.wordpress.com/2015/07/img_8988.jpg" data-orig-size="5184,3456" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.8&quot;,&quot;credit&quot;:&quot;Zheng Wang&quot;,&quot;camera&quot;:&quot;Canon EOS 60D&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1430838271&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;50&quot;,&quot;iso&quot;:&quot;200&quot;,&quot;shutter_speed&quot;:&quot;0.076923076923077&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="" data-image-description="" data-medium-file="https://zhengludwig.files.wordpress.com/2015/07/img_8988.jpg?w=300" data-large-file="https://zhengludwig.files.wordpress.com/2015/07/img_8988.jpg?w=660" src="./Self Driving RC Car – Zheng Wang_files/img_8988.jpg" width="190" height="127" data-original-width="190" data-original-height="127" title="" alt="" style="width: 182px; height: 122px;"> </div> <div class="tiled-gallery-item tiled-gallery-item-small"> <img data-attachment-id="156" data-orig-file="https://zhengludwig.files.wordpress.com/2015/07/img_8991.jpg" data-orig-size="5184,3456" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.8&quot;,&quot;credit&quot;:&quot;Zheng Wang&quot;,&quot;camera&quot;:&quot;Canon EOS 60D&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1430838655&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;50&quot;,&quot;iso&quot;:&quot;200&quot;,&quot;shutter_speed&quot;:&quot;0.076923076923077&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="" data-image-description="" data-medium-file="https://zhengludwig.files.wordpress.com/2015/07/img_8991.jpg?w=300" data-large-file="https://zhengludwig.files.wordpress.com/2015/07/img_8991.jpg?w=660" src="./Self Driving RC Car – Zheng Wang_files/img_8991.jpg" width="190" height="127" data-original-width="190" data-original-height="127" title="" alt="" style="width: 182px; height: 122px;"> </div> <div class="tiled-gallery-item tiled-gallery-item-small"> <img data-attachment-id="151" data-orig-file="https://zhengludwig.files.wordpress.com/2015/07/img_8984e589afe69cac.jpg" data-orig-size="5100,2946" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;5&quot;,&quot;credit&quot;:&quot;Zheng Wang&quot;,&quot;camera&quot;:&quot;Canon EOS 60D&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1430837839&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;19&quot;,&quot;iso&quot;:&quot;200&quot;,&quot;shutter_speed&quot;:&quot;0.033333333333333&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="" data-image-description="" data-medium-file="https://zhengludwig.files.wordpress.com/2015/07/img_8984e589afe69cac.jpg?w=300" data-large-file="https://zhengludwig.files.wordpress.com/2015/07/img_8984e589afe69cac.jpg?w=660" src="./Self Driving RC Car – Zheng Wang_files/img_8984e589afe69cac.jpg" width="190" height="110" data-original-width="190" data-original-height="110" title="" alt="" style="width: 182px; height: 105px;"> </div> </div> <!-- close group --> <div class="gallery-group images-3" style="width: 179px; height: 361px;" data-original-width="186" data-original-height="376"> <div class="tiled-gallery-item tiled-gallery-item-small"> <img data-attachment-id="157" data-orig-file="https://zhengludwig.files.wordpress.com/2015/07/img_9001.jpg" data-orig-size="5184,3456" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.8&quot;,&quot;credit&quot;:&quot;Zheng Wang&quot;,&quot;camera&quot;:&quot;Canon EOS 60D&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1430840014&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;50&quot;,&quot;iso&quot;:&quot;200&quot;,&quot;shutter_speed&quot;:&quot;0.066666666666667&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="" data-image-description="" data-medium-file="https://zhengludwig.files.wordpress.com/2015/07/img_9001.jpg?w=300" data-large-file="https://zhengludwig.files.wordpress.com/2015/07/img_9001.jpg?w=660" src="./Self Driving RC Car – Zheng Wang_files/img_9001.jpg" width="182" height="121" data-original-width="182" data-original-height="121" title="" alt="" style="width: 175px; height: 116px;"> </div> <div class="tiled-gallery-item tiled-gallery-item-small"> <img data-attachment-id="16" data-orig-file="https://zhengludwig.files.wordpress.com/2015/07/img_8993.jpg" data-orig-size="5184,3456" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.8&quot;,&quot;credit&quot;:&quot;Zheng Wang&quot;,&quot;camera&quot;:&quot;Canon EOS 60D&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1430838853&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;50&quot;,&quot;iso&quot;:&quot;200&quot;,&quot;shutter_speed&quot;:&quot;0.066666666666667&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="" data-image-description="" data-medium-file="https://zhengludwig.files.wordpress.com/2015/07/img_8993.jpg?w=300" data-large-file="https://zhengludwig.files.wordpress.com/2015/07/img_8993.jpg?w=660" src="./Self Driving RC Car – Zheng Wang_files/img_8993.jpg" width="182" height="121" data-original-width="182" data-original-height="121" title="" alt="" style="width: 175px; height: 116px;"> </div> <div class="tiled-gallery-item tiled-gallery-item-small"> <img data-attachment-id="153" data-orig-file="https://zhengludwig.files.wordpress.com/2015/07/img_9006.jpg" data-orig-size="5184,3456" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;5&quot;,&quot;credit&quot;:&quot;Zheng Wang&quot;,&quot;camera&quot;:&quot;Canon EOS 60D&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1430841907&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;50&quot;,&quot;iso&quot;:&quot;800&quot;,&quot;shutter_speed&quot;:&quot;0.066666666666667&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="" data-image-description="" data-medium-file="https://zhengludwig.files.wordpress.com/2015/07/img_9006.jpg?w=300" data-large-file="https://zhengludwig.files.wordpress.com/2015/07/img_9006.jpg?w=660" src="./Self Driving RC Car – Zheng Wang_files/img_9006.jpg" width="182" height="122" data-original-width="182" data-original-height="122" title="" alt="" style="width: 175px; height: 117px;"> </div> </div> <!-- close group --> <div class="gallery-group images-2" style="width: 269px; height: 361px;" data-original-width="280" data-original-height="376"> <div class="tiled-gallery-item tiled-gallery-item-large"> <img data-attachment-id="154" data-orig-file="https://zhengludwig.files.wordpress.com/2015/07/img_9007.jpg" data-orig-size="5184,3456" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;2.8&quot;,&quot;credit&quot;:&quot;Zheng Wang&quot;,&quot;camera&quot;:&quot;Canon EOS 60D&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1430842076&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;50&quot;,&quot;iso&quot;:&quot;200&quot;,&quot;shutter_speed&quot;:&quot;0.16666666666667&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="" data-image-description="" data-medium-file="https://zhengludwig.files.wordpress.com/2015/07/img_9007.jpg?w=300" data-large-file="https://zhengludwig.files.wordpress.com/2015/07/img_9007.jpg?w=660" src="./Self Driving RC Car – Zheng Wang_files/img_9007.jpg" width="276" height="184" data-original-width="276" data-original-height="184" title="" alt="" style="width: 265px; height: 176px;"> </div> <div class="tiled-gallery-item tiled-gallery-item-large"> <img data-attachment-id="155" data-orig-file="https://zhengludwig.files.wordpress.com/2015/07/img_9008.jpg" data-orig-size="5184,3456" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;4&quot;,&quot;credit&quot;:&quot;Zheng Wang&quot;,&quot;camera&quot;:&quot;Canon EOS 60D&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1430842424&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;50&quot;,&quot;iso&quot;:&quot;200&quot;,&quot;shutter_speed&quot;:&quot;0.16666666666667&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="" data-image-description="" data-medium-file="https://zhengludwig.files.wordpress.com/2015/07/img_9008.jpg?w=300" data-large-file="https://zhengludwig.files.wordpress.com/2015/07/img_9008.jpg?w=660" src="./Self Driving RC Car – Zheng Wang_files/img_9008.jpg" width="276" height="184" data-original-width="276" data-original-height="184" title="" alt="" style="width: 265px; height: 176px;"> </div> </div> <!-- close group --> </div> <!-- close row --> </div>
+<h4 style="font-size:18px;">Input Unit</h4>
+<p style="font-size:16px;">A Raspberry Pi board (model B+), attached with a pi camera module and an HC-SR04 ultrasonic sensor is used to collect input data. Two client programs run on Raspberry Pi for streaming color video and ultrasonic sensor data to the computer via local Wi-Fi connection. In order to achieve low latency video streaming, video is scaled down to QVGA (320×240) resolution.</p>
+<h4 style="font-size:18px;">Processing Unit</h4>
+<p style="font-size:16px;">The processing unit (computer) handles multiple tasks: receiving data from Raspberry Pi, neural network training and prediction(steering), object detection(stop sign and traffic light), distance measurement(monocular vision), and sending instructions to Arduino through USB connection.</p>
+<p style="font-size:16px;"><em>TCP Server</em><br>
+A multithread TCP server program runs on the computer to receive streamed image frames and ultrasonic data from the Raspberry Pi. Image frames are converted to gray scale and are decoded into numpy arrays.</p>
+<p style="font-size:16px;"><em>Neural Network</em><br>
+One advantage of using neural network is that once the network is trained, it only needs to load trained parameters afterwards, thus prediction can be very fast. Only lower half of the input image is used for training and prediction purposes. There are 38,400 (320×120) nodes in the input layer and 32 nodes in the hidden layer. The number of nodes in the hidden layer is chosen fairly arbitrary. There are four nodes in the output layer where each node corresponds to the steering control instructions: left, right, forward and reverse respectively (though reverse is not used anywhere in this project, it’s still included in the output layer).</p>
+<p style="font-size:16px;"><img class="alignnone wp-image-145 size-large" src="./Self Driving RC Car – Zheng Wang_files/mlp_half_32-2.jpg" alt="mlp_half_32-2" width="660" height="343"></p>
+<p style="font-size:16px;">Below shows the training data collection process. First each frame is cropped and converted to a numpy array. Then the train image is paired with train label (human input). Finally, all paired image data and labels are saved into a npz file. The neural network is trained in OpenCV using back propagation method. Once training is done, weights are saved into a xml file. To generate predictions, the same neural network is constructed and loaded with the trained xml file.</p>
+<p style="font-size:16px;"><img class="alignnone wp-image-164 size-large" src="./Self Driving RC Car – Zheng Wang_files/collect_train_data.jpg" alt="collect_train_data" width="660" height="263"></p>
+<p style="font-size:16px;"><em>Object Detection</em><br>
+This project adapted the shape-based approach and used Haar feature-based cascade classifiers for object detection. Since each object requires its own classifier and follows the same process in training and detection, this project only focused on stop sign and traffic light detection.</p>
+<p style="font-size:16px;">OpenCV provides a trainer as well as detector. Positive samples (contain target object) were acquired using&nbsp;a cell phone, and were cropped that only desired object is visible. Negative samples (without target object), on the other hand, were collected&nbsp;randomly. In particular, traffic light positive samples contains equal number of red traffic lights and green traffic light. The same negative sample dataset was used for both stop sign and traffic light training.&nbsp;Below shows some positive and negative samples used in this project.</p>
+<p style="font-size:16px;"><img class="alignnone wp-image-206 size-large" src="./Self Driving RC Car – Zheng Wang_files/pos_neg_samples.jpg" alt="pos_neg_samples" width="660" height="258"></p>
+<p style="font-size:16px;"><img class="alignnone wp-image-208 size-large" src="./Self Driving RC Car – Zheng Wang_files/sample_tabel.jpg" alt="sample_tabel" width="660" height="163"></p>
+<p style="font-size:16px;">To recognize different states of the traffic light(red, green), some image processing is needed beyond detection. Flowchart below summarizes the traffic light recognition process.</p>
+<p><img class="alignnone size-large wp-image-234" src="./Self Driving RC Car – Zheng Wang_files/brightest_spot.jpg" alt="brightest_spot" width="660" height="110"></p>
+<p style="font-size:16px;">Firstly, trained cascade classifier is used to detect traffic light. The bounding box is considered as a region of interest (ROI). Secondly, Gaussian blur is applied inside the ROI to reduce noises. Thirdly, find the brightest point in the ROI. Finally, red or green states are determined simply based on the position of the brightest spot in the ROI.</p>
+<p style="font-size:16px;"><em>Distance Measurement</em><br>
+Raspberry Pi can only support one pi camera module. Using two USB web cameras will bring extra weight to the RC car and also seems unpractical. Therefore, monocular vision method is chosen.</p>
+<p style="font-size:16px;">This project adapted a geometry model of detecting distance to an object using monocular vision method proposed by <a href="http://ieeexplore.ieee.org/xpl/abstractAuthors.jsp?tp=&amp;arnumber=1336478&amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D1336478" target="_blank">Chu, Ji, Guo, Li and Wang (2004)</a>.</p>
+<p style="font-size:16px;"><img class="alignnone size-large wp-image-239" src="./Self Driving RC Car – Zheng Wang_files/distant.jpg" alt="distant" width="660" height="310"></p>
+<p style="font-size:16px;">P is a point on the target object; d is the distance from optical center to the point P. Based on the geometry relationship above, formula (1) shows how to calculate the distance d. In the formula (1), f is the focal length of the camera; ∂ is camera tilt angle; h is optical center height; (x0, y0) refers to the intersection point of image plane and optical axis; (x, y) refers to projection of point P on the image plane. Suppose O1 (u0,v0) is the camera coordinate of intersection point of optical axis and image plane, also suppose the physical dimension of a pixel corresponding to x-axis and y-axis on the image plane are dx and dy. Then:<br>
+<img class="alignnone size-large wp-image-245" src="./Self Driving RC Car – Zheng Wang_files/distance_measure.jpg" alt="distance_measure" width="660" height="175"><br>
+v is the camera coordinates on y-axis and can be returned from&nbsp;the object detection&nbsp;process. All other parameters are camera’s intrinsic parameters that can be retrieved from&nbsp;camera matrix.</p>
+<p style="font-size:16px;">OpenCV provides functions for <a href="http://opencv-python-tutroals.readthedocs.org/en/latest/py_tutorials/py_calib3d/py_calibration/py_calibration.html" target="_blank">camera calibration</a>.&nbsp;Camera matrix for the 5MP pi camera is returned after calibration. Ideally, a_x and a_y have the same value. Variance of these two values will result in non-square pixels in the image. The matrix below indicates that the fixed&nbsp;focal length lens on pi camera provides a reasonably&nbsp;good result in handling distortion aspect. <a href="http://www.truetex.com/raspberrypi" target="_blank">Here</a> is an interesting article discussing the focal length of pi camera with stock lens and its equivalent to 35mm camera .<br>
+<img class="size-medium wp-image-253 aligncenter" src="./Self Driving RC Car – Zheng Wang_files/pi_cam_matrix.jpg" alt="pi_cam_matrix" width="300" height="76">The matrix returns values in pixels and h is measured in centimeters. By applying formula (3), the physical distance d is calculated in centimeters.</p>
+<h4 style="font-size:18px;">RC Car Control&nbsp;Unit</h4>
+<p style="font-size:16px;">The RC car used in this project has an on/off switch type controller. When a button is pressed, the resistance between the relevant chip pin and ground is zero. Thus, an Arduino board is used to simulate button-press actions. Four Arduino pins are chosen to connect four chip pins on the controller, corresponding to forward, reverse, left and right actions respectively. Arduino pins sending LOW signal indicates grounding the chip pins of the controller; on the other hand sending HIGH signal indicates the resistance between chip pins and ground remain unchanged. The Arduino is connected to the computer via USB. The computer outputs commands to Arduino using serial interface, and then the Arduino reads the commands and writes out LOW or HIGH signals, simulating button-press actions to drive the RC car.</p>
+<h4 style="font-size:20px;">Results</h4>
+<p style="font-size:16px;">Prediction on the testing samples returns an accuracy of 85% compared to the accuracy of 96% that the training samples returns. In actual driving situation, predictions are generated about 10 times a second (streaming rate roughly 10 frames/s).</p>
+<p style="font-size:16px;">Haar features by nature are rotation sensitive. In this project, however, rotation is not a concern as both the stop sign and the traffic light are fixed objects, which is also a general case in real world environment.</p>
+<p style="font-size:16px;"><img class="alignnone wp-image-275" src="./Self Driving RC Car – Zheng Wang_files/drive_test01.jpg" alt="drive_test01" width="280" height="211">&nbsp; &nbsp;<img class="alignnone wp-image-276" src="./Self Driving RC Car – Zheng Wang_files/drive_test02.jpg" alt="drive_test02" width="280" height="209"></p>
+<p style="font-size:16px;">For distance measurement aspect, the ultrasonic sensor is only used to determine the distance to an obstacle in front of the RC car and provides accurate results when taking proper sensing angle and surface condition into considerations. On the other hand, Pi camera provides “good enough” measurement results. In fact, as long as we know the corresponding number to the actual distance, we know when to stop the RC car. Experimental results of detecting distance using pi camera are shown as below:<br>
+<img class="alignnone size-large wp-image-291" src="./Self Driving RC Car – Zheng Wang_files/camera_measure2.jpg" alt="camera_measure2" width="660" height="371"></p>
+<p style="font-size:16px;">In this project, the accuracy of distance measurement using monocular vision approach could be influenced by the following factors: (1) errors in actual values measurement, (2) object bounding box variations in detecting process, (3) errors in camera calibration process, (4) nonlinear relationship between distance and camera coordinate: the further the distance, the more rapid change of camera coordinate, thus the greater the error.</p>
+<p style="font-size:16px;">Overall, the RC car could successfully navigate on the track with the ability to avoid front collision, and respond to stop sign and traffic light accordingly.</p>
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-25" class="share-twitter sd-button share-icon" href="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/?share=twitter&amp;nb=1" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-25" class="share-facebook sd-button share-icon" href="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/?share=facebook&amp;nb=1" target="_blank" title="Share on Facebook"><span>Facebook<span class="share-count">508</span></span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-25" class="share-google-plus-1 sd-button share-icon" href="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/?share=google-plus-1&amp;nb=1" target="_blank" title="Click to share on Google+"><span>Google</span></a></li><li class="share-end"></li></ul></div></div></div><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-95192492-25-56acd21345e45" data-src="//widgets.wp.com/likes/#blog_id=95192492&amp;post_id=25&amp;origin=zhengludwig.wordpress.com&amp;obj_id=95192492-25-56acd21345e45" data-name="like-post-frame-95192492-25-56acd21345e45"><h3 class="sd-title">Like this:</h3><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><iframe class="post-likes-widget jetpack-likes-widget" name="like-post-frame-95192492-25-56acd21345e45" height="55px" width="100%" frameborder="0" src="./Self Driving RC Car – Zheng Wang_files/saved_resource.html"></iframe><span class="sd-text-color"></span><a class="sd-link-color"></a></div></div>			</div><!-- .entry-content -->
+
+	
+</article><!-- #post-## -->
+
+<div id="comments" class="comments-area">
+
+			<h2 class="comments-title">
+			8 thoughts on “Self Driving RC&nbsp;Car”		</h2>
+
+		
+		<ol class="comment-list">
+					<li id="comment-20" class="pingback even thread-even depth-1 highlander-comment">
+			<div class="comment-body">
+				Pingback: <a href="https://diyin.wordpress.com/2016/01/14/diy-self-driving-car-project-with-raspberrypi-and-opencv/" rel="external nofollow" class="url">DIY Self Driving Car Project with RaspberryPi and OpenCV | Do It Yourself India Magazine</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-21" class="pingback odd alt thread-odd thread-alt depth-1 highlander-comment">
+			<div class="comment-body">
+				Pingback: <a href="http://descubrearduino.com/coche-autonomo-de-rc-con-arduino-y-raspberry/" rel="external nofollow" class="url">Coche autónomo de RC con Arduino y Raspberry Pi</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-26" class="pingback even thread-even depth-1 highlander-comment">
+			<div class="comment-body">
+				Pingback: <a href="http://ozzmaker.com/self-driving-rc-car-raspberry-pi-arduino/" rel="external nofollow" class="url">Self Driving RC Car with a Raspberry Pi and Arduino - ozzmaker.com</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-27" class="pingback odd alt thread-odd thread-alt depth-1 highlander-comment">
+			<div class="comment-body">
+				Pingback: <a href="http://www.recantha.co.uk/blog/?p=14038" rel="external nofollow" class="url">Self-driving remote control model car uses Raspberry Pi as brain – Raspberry Pi Pod</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-29" class="pingback even thread-even depth-1 highlander-comment">
+			<div class="comment-body">
+				Pingback: <a href="http://ictoblog.nl/2016/01/18/mooi-onderwijs-project-zelfstandig-rijdende-auto-op-basis-van-raspberry-pi" rel="external nofollow" class="url">Mooi (onderwijs-)project: zelfstandig rijdende auto op basis van Raspberry Pi – ICT en Onderwijs BLOG</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-30" class="pingback odd alt thread-odd thread-alt depth-1 highlander-comment">
+			<div class="comment-body">
+				Pingback: <a href="https://blog.adafruit.com/2016/01/22/self-driving-rc-car-piday-raspberrypi-raspberry_pi/" rel="external nofollow" class="url">Self Driving RC Car #piday #raspberrypi @Raspberry_Pi « Adafruit Industries – Makers, hackers, artists, designers and engineers!</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-31" class="pingback even thread-even depth-1 highlander-comment">
+			<div class="comment-body">
+				Pingback: <a href="http://rasp-pi.com/self-driving-rc-car-piday-raspberrypi-raspberry_pi/" rel="external nofollow" class="url">Self Driving RC Car #piday #raspberrypi @Raspberry_Pi – Raspberry Pi News</a> 			</div>
+</li><!-- #comment-## -->
+		<li id="comment-42" class="pingback odd alt thread-odd thread-alt depth-1 highlander-comment">
+			<div class="comment-body">
+				Pingback: <a href="http://www.maxigadget.com/2016/01/fabriquer-voiture-rc-autonome-raspberry-pi-video.html" rel="external nofollow" class="url">Il Fabrique une Voiture RC Autonome sous Raspberry PI (Video)</a> 			</div>
+</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		
+	
+	
+					<div id="respond" class="comment-respond js">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/#respond" style="display:none;">Cancel reply</a></small></h3>				<form action="https://zhengludwig.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+					<input type="hidden" id="highlander_comment_nonce" name="highlander_comment_nonce" value="e57f90f9da"><input type="hidden" name="_wp_http_referer" value="/projects/self-driving-rc-car/">
+<input type="hidden" name="hc_post_as" id="hc_post_as" value="guest">
+
+<div class="comment-form-field comment-textarea">
+	
+	<div id="comment-form-comment"><textarea tabindex="-1" style="position: absolute; top: -999px; left: 0px; right: auto; bottom: auto; border: 0px; padding: 0px; box-sizing: content-box; word-wrap: break-word; overflow: hidden; transition: none; height: 0px !important; min-height: 0px !important; font-family: &#39;Noto Serif&#39;, serif; font-size: 14px; font-weight: 400; font-style: normal; letter-spacing: 0px; text-transform: none; text-decoration: none; word-spacing: 0px; text-indent: 0px; line-height: 23.5788px; width: 612.859px;" class="autosizejs "></textarea><textarea id="comment" name="comment" title="Enter your comment here..." placeholder="Enter your comment here..." style="height: 43px; overflow: hidden; word-wrap: break-word; resize: none;"></textarea></div>
+</div>
+
+<div id="comment-form-identity" style="display: none;">
+
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a href="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/#comment-form-guest" id="postas-guest" title="Guest">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+			<li>
+			<iframe id="googleplus-sign-in" name="googleplus-sign-in" src="./Self Driving RC Car – Zheng Wang_files/saved_resource(10).html" width="24" height="24" scrolling="no" allowtransparency="true" seamless="seamless" frameborder="0"></iframe>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="./Self Driving RC Car – Zheng Wang_files/ad516503a11cd5ca435acc9bb6523536" alt="Gravatar" width="25" class="no-grav">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" type="text" value=""></div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Self Driving RC Car – Zheng Wang_files/wplogo.png" alt="WordPress.com Logo" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="">
+				<p class="comment-form-posting-as pa-wordpress"><strong></strong> You are commenting using your <span class="skimlinks-unlinked">WordPress.com</span> account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;wordpress&#39; );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Self Driving RC Car – Zheng Wang_files/ad516503a11cd5ca435acc9bb6523536" alt="Twitter picture" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="">
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> You are commenting using your Twitter account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;twitter&#39; );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Self Driving RC Car – Zheng Wang_files/ad516503a11cd5ca435acc9bb6523536" alt="Facebook photo" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="">
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> You are commenting using your Facebook account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;facebook&#39; );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-googleplus" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./Self Driving RC Car – Zheng Wang_files/ad516503a11cd5ca435acc9bb6523536" alt="Google+ photo" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="googleplus_avatar" id="googleplus-avatar" class="comment-meta-googleplus" value="">
+				<input type="hidden" name="googleplus_user_id" id="googleplus-user_id" class="comment-meta-googleplus" value="">
+				<input type="hidden" name="googleplus_access_token" id="googleplus-access_token" class="comment-meta-googleplus" value="">
+				<p class="comment-form-posting-as pa-googleplus"><strong></strong> You are commenting using your Google+ account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( &#39;googleplus&#39; );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div id="comment-form-subscribe" style="display: none;">
+	<p class="comment-subscription-form"><input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" tabindex="6"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of new comments via email.</label></p></div>
+
+
+
+
+<p class="form-submit" style="display: none;"><input name="submit" type="submit" id="comment-submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="25" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="9dae166756"></p>
+<input type="hidden" name="genseq" value="1454166547">
+<p style="display: none;"></p>				<input type="hidden" id="ak_js" name="ak_js" value="1454167765461"></form>
+					</div><!-- #respond -->
+		<div style="clear: both"></div>
+</div><!-- .comments-area -->
+
+		</main><!-- .site-main -->
+	</div><!-- .content-area -->
+
+
+	</div><!-- .site-content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info">
+			<a href="https://wordpress.com/themes/twentyfifteen/" title="Learn more about this theme">The Twenty Fifteen Theme</a>.			<a href="https://wordpress.com/?ref=footer_blog">Blog at WordPress.com.</a>
+		</div><!-- .site-info -->
+	</footer><!-- .site-footer -->
+
+</div><!-- .site -->
+
+<!-- wpcom_wp_footer -->
+<script type="text/javascript" src="./Self Driving RC Car – Zheng Wang_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Self Driving RC Car – Zheng Wang_files/wpgroho.js"></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"https:\/\/zhengludwig.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/zhengludwig.wordpress.com\/wp-login.php?action=logout&_wpnonce=50d0756b85","homeURL":"https:\/\/zhengludwig.wordpress.com\/","postID":"25","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"0","userIsLoggedIn":"","isJetpack":"0","text_direction":"ltr"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Self Driving RC Car – Zheng Wang_files/saved_resource(6)"></script>
+
+	<div id="bit" class="loggedout-follow-normal" style="bottom: -268px;">
+		<a class="bsub" href="javascript:void(0)"><span id="bsub-text">Follow</span></a>
+		<div id="bitsubscribe">
+
+					<h3><label for="loggedout-follow-field">Follow “Zheng Wang”</label></h3>
+
+			<form action="https://subscribe.wordpress.com/" method="post" accept-charset="utf-8" id="loggedout-follow">
+			<p>Get every new post delivered to your Inbox.</p>
+
+			<p id="loggedout-follow-error" style="display: none;"></p>
+
+			
+			<p><input type="email" name="email" placeholder="Enter your email address" id="loggedout-follow-field"></p>
+
+			<input type="hidden" name="action" value="subscribe">
+			<input type="hidden" name="blog_id" value="95192492">
+			<input type="hidden" name="source" value="https://zhengludwig.wordpress.com/projects/self-driving-rc-car/">
+			<input type="hidden" name="sub-type" value="loggedout-follow">
+
+			<input type="hidden" id="_wpnonce" name="_wpnonce" value="85bb3f184c"><input type="hidden" name="_wp_http_referer" value="/projects/self-driving-rc-car/">
+			<p id="bsub-subscribe-button"><input type="submit" value="Sign me up"></p>
+			</form>
+					<div id="bsub-credit"><a href="https://wordpress.com/?ref=lof">Build a website with WordPress.com</a></div>
+		</div><!-- #bitsubscribe -->
+	</div><!-- #bit -->
+
+	<div id="carousel-reblog-box">
+		<form action="" name="carousel-reblog">
+			<textarea id="carousel-reblog-content" name="carousel-reblog-content" placeholder="Add your thoughts here... (optional)"></textarea>
+			<label for="carousel-reblog-to-blog-id" id="carousel-reblog-lblogid">Post to</label>
+			<select name="carousel-reblog-to-blog-id" id="carousel-reblog-to-blog-id">
+						</select>
+
+			<div class="submit">
+				<span class="canceltext"><a href="" class="cancel">Cancel</a></span>
+				<input type="submit" name="carousel-reblog-submit" class="button" id="carousel-reblog-submit" value="Reblog Post">
+				<input type="hidden" id="carousel-reblog-blog-id" value="95192492">
+				<input type="hidden" id="carousel-reblog-blog-url" value="https://zhengludwig.wordpress.com">
+				<input type="hidden" id="carousel-reblog-blog-title" value="Zheng Wang">
+				<input type="hidden" id="carousel-reblog-post-url" value="">
+				<input type="hidden" id="carousel-reblog-post-title" value="">
+			</div>
+
+			<input type="hidden" id="_wpnonce" name="_wpnonce" value="8b952ccb06"><input type="hidden" name="_wp_http_referer" value="/projects/self-driving-rc-car/">		</form>
+
+		<div class="arrow"></div>
+	</div>
+
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https:\/\/zhengludwig.wordpress.com\/projects\/self-driving-rc-car\/":25};
+	</script>
+		<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+		});
+		</script>
+				<iframe src="./Self Driving RC Car – Zheng Wang_files/master.html" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+		<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+		<script type="text/javascript">
+		//<![CDATA[
+			var jetpackLikesWidgetQueue = [];
+			var jetpackLikesWidgetBatch = [];
+			var jetpackLikesMasterReady = false;
+
+			function JetpackLikespostMessage( message, target ) {
+				if ( "string" === typeof message ){
+					try{
+						message = JSON.parse( message );
+					}
+					catch(e) {
+						return;
+					}
+				}
+
+				pm( {
+					target: target,
+					type: 'likesMessage',
+					data: message,
+					origin: '*'
+				} );
+			}
+
+			function JetpackLikesBatchHandler() {
+				var requests = [];
+				jQuery( 'div.jetpack-likes-widget-unloaded' ).each( function( i ) {
+					if ( jetpackLikesWidgetBatch.indexOf( this.id ) > -1 )
+						return;
+					jetpackLikesWidgetBatch.push( this.id );
+					var regex = /like-(post|comment)-wrapper-(\d+)-(\d+)-(\w+)/;
+					var match = regex.exec( this.id );
+					if ( ! match || match.length != 5 )
+						return;
+
+					var info = {
+						blog_id: match[2],
+						width:   this.width
+					};
+
+					if ( 'post' == match[1] ) {
+						info.post_id = match[3];
+					} else if ( 'comment' == match[1] ) {
+						info.comment_id = match[3];
+					}
+
+					info.obj_id = match[4];
+
+					requests.push( info );
+				});
+
+				if ( requests.length > 0 ) {
+					JetpackLikespostMessage( { event: 'initialBatch', requests: requests }, window.frames['likes-master'] );
+				}
+			}
+
+			function JetpackLikesMessageListener( event ) {
+				if ( "undefined" == typeof event.event )
+					return;
+
+				if ( 'masterReady' == event.event ) {
+					jQuery( document ).ready( function() {
+						jetpackLikesMasterReady = true;
+
+						var stylesData = {
+								event: 'injectStyles'
+						};
+
+						if ( jQuery( 'iframe.admin-bar-likes-widget' ).length > 0 ) {
+							JetpackLikespostMessage( { event: 'adminBarEnabled' }, window.frames[ 'likes-master' ] );
+
+							stylesData.adminBarStyles = {
+								background: jQuery( '#wpadminbar .quicklinks li#wp-admin-bar-wpl-like > a' ).css( 'background' ),
+								isRtl: ( 'rtl' == jQuery( '#wpadminbar' ).css( 'direction' ) )
+							};
+						}
+
+						if ( !window.addEventListener )
+							jQuery( '#wp-admin-bar-admin-bar-likes-widget' ).hide();
+
+						stylesData.textStyles = {
+							color: jQuery( '.sd-text-color').css( 'color' ),
+							fontFamily: jQuery( '.sd-text-color' ).css( 'font-family' ),
+							fontSize: jQuery( '.sd-text-color' ).css( 'font-size' ),
+							direction: jQuery( '.sd-text-color' ).css( 'direction' ),
+							fontWeight: jQuery( '.sd-text-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-text-color' ).css( 'font-style' ),
+							textDecoration: jQuery( '.sd-text-color' ).css('text-decoration')
+						};
+
+						stylesData.linkStyles = {
+							color: jQuery( '.sd-link-color' ).css('color'),
+							fontFamily: jQuery( '.sd-link-color' ).css('font-family'),
+							fontSize: jQuery( '.sd-link-color' ).css('font-size'),
+							textDecoration: jQuery( '.sd-link-color' ).css('text-decoration'),
+							fontWeight: jQuery( '.sd-link-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-link-color' ).css( 'font-style' )
+						};
+
+						JetpackLikespostMessage( stylesData, window.frames[ 'likes-master' ] );
+
+						JetpackLikesBatchHandler();
+
+						jQuery( document ).on( 'inview', 'div.jetpack-likes-widget-unloaded', function() {
+							jetpackLikesWidgetQueue.push( this.id );
+						});
+					});
+				}
+
+				if ( 'showLikeWidget' == event.event ) {
+					jQuery( '#' + event.id + ' .post-likes-widget-placeholder'  ).fadeOut( 'fast', function() {
+						jQuery( '#' + event.id + ' .post-likes-widget' ).fadeIn( 'fast', function() {
+							JetpackLikespostMessage( { event: 'likeWidgetDisplayed', blog_id: event.blog_id, post_id: event.post_id, obj_id: event.obj_id }, window.frames['likes-master'] );
+						});
+					});
+				}
+
+				if ( 'clickReblogFlair' == event.event ) {
+					wpcom_reblog.toggle_reblog_box_flair( event.obj_id );
+				}
+
+				if ( 'showOtherGravatars' == event.event ) {
+					var $container = jQuery( '#likes-other-gravatars' );
+					var $list = $container.find( 'ul' );
+
+					$container.hide();
+					$list.html( '' );
+
+					$container.find( '.likes-text span' ).text( event.total );
+
+					jQuery.each( event.likers, function( i, liker ) {
+						$list.append( '<li class="' + liker.css_class + '"><a href="' + liker.profile_URL + '" class="wpl-liker" rel="nofollow" target="_parent"><img src="' + liker.avatar_URL + '" alt="' + liker.name + '" width="30" height="30" style="padding-right: 3px;" /></a></li>');
+					} );
+
+					var offset = jQuery( "[name='" + event.parent + "']" ).offset();
+
+					$container.css( 'left', offset.left + event.position.left - 10 + 'px' );
+					$container.css( 'top', offset.top + event.position.top - 33 + 'px' );
+
+					var rowLength = Math.floor( event.width / 37 );
+					var height = ( Math.ceil( event.likers.length / rowLength ) * 37 ) + 13;
+					if ( height > 204 ) {
+						height = 204;
+					}
+
+					$container.css( 'height', height + 'px' );
+					$container.css( 'width', rowLength * 37 - 7 + 'px' );
+
+					$list.css( 'width', rowLength * 37 + 'px' );
+
+					$container.fadeIn( 'slow' );
+
+					var scrollbarWidth = $list[0].offsetWidth - $list[0].clientWidth;
+					if ( scrollbarWidth > 0 ) {
+						$container.width( $container.width() + scrollbarWidth );
+						$list.width( $list.width() + scrollbarWidth );
+					}
+				}
+			}
+
+			pm.bind( 'likesMessage', function(e) { JetpackLikesMessageListener(e); } );
+
+			jQuery( document ).click( function( e ) {
+				var $container = jQuery( '#likes-other-gravatars' );
+
+				if ( $container.has( e.target ).length === 0 ) {
+					$container.fadeOut( 'slow' );
+				}
+			});
+
+			function JetpackLikesWidgetQueueHandler() {
+				var wrapperID;
+				if ( ! jetpackLikesMasterReady ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+					return;
+				}
+
+				if ( jetpackLikesWidgetQueue.length > 0 ) {
+					// We may have a widget that needs creating now
+					var found = false;
+					while( jetpackLikesWidgetQueue.length > 0 ) {
+						// Grab the first member of the queue that isn't already loading.
+						wrapperID = jetpackLikesWidgetQueue.splice( 0, 1 )[0];
+						if ( jQuery( '#' + wrapperID ).hasClass( 'jetpack-likes-widget-unloaded' ) ) {
+							found = true;
+							break;
+						}
+					}
+					if ( ! found ) {
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				} else if ( jQuery( 'div.jetpack-likes-widget-unloaded' ).length > 0 ) {
+					// Grab any unloaded widgets for a batch request
+					JetpackLikesBatchHandler();
+
+					// Get the next unloaded widget
+					wrapperID = jQuery( 'div.jetpack-likes-widget-unloaded' ).first()[0].id;
+					if ( ! wrapperID ) {
+						// Everything is currently loaded
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				}
+
+				if ( 'undefined' === typeof wrapperID ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+					return;
+				}
+
+				var $wrapper = jQuery( '#' + wrapperID );
+				$wrapper.find( 'iframe' ).remove();
+
+				if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='22px' width='68px' frameBorder='0' scrolling='no' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				} else {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='55px' width='100%' frameBorder='0' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				}
+
+				$wrapper.removeClass( 'jetpack-likes-widget-unloaded' ).addClass( 'jetpack-likes-widget-loading' );
+
+				$wrapper.find( 'iframe' ).load( function( e ) {
+					var $iframe = jQuery( e.target );
+					$wrapper.removeClass( 'jetpack-likes-widget-loading' ).addClass( 'jetpack-likes-widget-loaded' );
+
+					JetpackLikespostMessage( { event: 'loadLikeWidget', name: $iframe.attr( 'name' ), width: $iframe.width() }, window.frames[ 'likes-master' ] );
+
+					if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+						$wrapper.find( 'iframe' ).Jetpack( 'resizeable' );
+					}
+				});
+				setTimeout( JetpackLikesWidgetQueueHandler, 250 );
+			}
+			JetpackLikesWidgetQueueHandler();
+		//]]>
+		</script>
+<script type="text/javascript" src="./Self Driving RC Car – Zheng Wang_files/form.js"></script>
+<link rel="stylesheet" id="all-css-0" href="./Self Driving RC Car – Zheng Wang_files/jetpack-carousel.css" type="text/css" media="all">
+<!--[if lte IE 8]>
+<link rel='stylesheet' id='jetpack-carousel-ie8fix-css'  href='https://s1.wp.com/wp-content/mu-plugins/carousel/jetpack-carousel-ie8fix.css?m=1412618825g&#038;ver=20121024' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="all-css-2" href="./Self Driving RC Car – Zheng Wang_files/saved_resource(7)" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var comment_like_text = {"loading":"Loading..."};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var screenReaderText = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var JetpackEmojiSettings = {"base_url":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/emoji\/twemoji\/"};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"https:\/\/zhengludwig.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"0d9b9eb597","display_exif":"1","display_geo":"1","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","comment_registration":"0","require_name_email":"1","login_url":"https:\/\/zhengludwig.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fzhengludwig.wordpress.com%2Fprojects%2Fself-driving-rc-car%2F","local_comments_commenting_as":"<fieldset><label for=\"email\">Email (Required)<\/label> <input type=\"text\" name=\"email\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-email-field\" \/><\/fieldset><fieldset><label for=\"author\">Name (Required)<\/label> <input type=\"text\" name=\"author\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-author-field\" \/><\/fieldset><fieldset><label for=\"url\">Website<\/label> <input type=\"text\" name=\"url\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-url-field\" \/><\/fieldset>","reblog":"Reblog","reblogged":"Reblogged","reblog_add_thoughts":"Add your thoughts here... (optional)","reblogging":"Reblogging...","post_reblog":"Post Reblog","stats_query_args":"blog=95192492&v=wpcom&tz=-5&user_id=0&subd=zhengludwig","is_public":"1","reblog_enabled":""};
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"https:\/\/zhengludwig.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"0d9b9eb597","display_exif":"1","display_geo":"1","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","comment_registration":"0","require_name_email":"1","login_url":"https:\/\/zhengludwig.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fzhengludwig.wordpress.com%2Fprojects%2Fself-driving-rc-car%2F","local_comments_commenting_as":"<fieldset><label for=\"email\">Email (Required)<\/label> <input type=\"text\" name=\"email\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-email-field\" \/><\/fieldset><fieldset><label for=\"author\">Name (Required)<\/label> <input type=\"text\" name=\"author\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-author-field\" \/><\/fieldset><fieldset><label for=\"url\">Website<\/label> <input type=\"text\" name=\"url\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-url-field\" \/><\/fieldset>","reblog":"Reblog","reblogged":"Reblogged","reblog_add_thoughts":"Add your thoughts here... (optional)","reblogging":"Reblogging...","post_reblog":"Post Reblog","stats_query_args":"blog=95192492&v=wpcom&tz=-5&user_id=0&subd=zhengludwig","is_public":"1","reblog_enabled":""};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Self Driving RC Car – Zheng Wang_files/saved_resource(8)"></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>	<script type="text/javascript">
+	var skimlinks_pub_id = "725X584219"
+	var skimlinks_sitename = "zhengludwig.wordpress.com";
+	</script>
+	<script type="text/javascript" src="./Self Driving RC Car – Zheng Wang_files/725X1342.skimlinks.js"></script><script src="./Self Driving RC Car – Zheng Wang_files/w.js" type="text/javascript" async="" defer=""></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'95192492','blog_tz':'-5','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'95192492','v':'wpcom','tz':'-5','user_id':'0','post':'25','subd':'zhengludwig'}]);
+_stq.push(['extra', {'crypt':'UE40eW5QN0p8M2Y/RE1LVmwrVi5vQS5fVFtfdHBbPyw1VXIrU3hWLHhzVndTdktBX0ddJnpXRjVaOTd6fj1YMX4ydzR6MmRCYnxkNmcuSzEucHRwd2JUdzItUlk4NEJ5PXw5clVXVSUtZ3hCPWxoP2lVOWhneVBrNTZ6U0VCXVVzOV1fcGw4P3N2LWp8djJ4Z3laeVZCcVIuZEhaK0d0Y0JDQVtxSXcsWXBLX1BvQisyPXVFaHRIZkU9Z0swTVRnLXlvVmJRY3FhRGNEV1RadiV1VF0vS1ZNd1VrdWk/QW84dSt5YjZOV1Y2Wl1DUlk2ND1maVZaUDV8UnUvREFBOE1odGp5aWJDblBocw=='}]);
+_stq.push([ 'clickTrackerInit', '95192492', '25' ]);
+	</script>
+<noscript>&lt;img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /&gt;</noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+
+
+<!--
+	generated 60 seconds ago
+	generated in 0.658 seconds
+	served from batcache in 0.003 seconds
+	expires in 240 seconds
+-->
+<div class="comment-likes-overlay" style="display: none;"></div><img src="./Self Driving RC Car – Zheng Wang_files/g.gif" id="wpstats"></body></html>
